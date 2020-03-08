@@ -1,0 +1,24 @@
+Three layers:
+1. Background layer: lowest layer, can scroll
+2. sprite layer: up to 40 sprites at once
+3. screen layer: usually text, print score etc.
+
+Screen is 18 tiles tall, 32 tiles wide
+
+Use gb tile designer to make tiles
+export as gbdk c files
+remember to save fro 0 to N
+
+set_bkg_data - Set background sprite data
+set_bkg_tiles - Set background map data
+
+SHOW_WIN - show the window
+
+Sound
+* 4 channels
+    1 & 2 - quad waves (mostly for music)
+        Only ch1 has frequency sweeps
+    3 - programmable wave table (playback samples, fully pause graphics)
+    4 - noise generator (sound effects)
+
+
