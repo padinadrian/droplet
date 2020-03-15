@@ -3,7 +3,7 @@ Three layers:
 2. sprite layer: up to 40 sprites at once
 3. screen layer: usually text, print score etc.
 
-Screen is 18 tiles tall, 32 tiles wide
+Screen is 18 tiles tall, 20 tiles wide
 
 Use gb tile designer to make tiles
 export as gbdk c files

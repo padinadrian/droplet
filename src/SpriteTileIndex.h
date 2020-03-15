@@ -3,8 +3,8 @@
  *  Date:   2020/03/04
  */
 
-#ifndef DROPLET_SPRITE_INDEX_H
-#define DROPLET_SPRITE_INDEX_H
+#ifndef DROPLET_SPRITE_TILE_INDEX_H
+#define DROPLET_SPRITE_TILE_INDEX_H
 
 /* ===== Data Types ===== */
 
@@ -35,8 +35,8 @@ typedef enum {
     SPRITE_DROPLET_16_SQUAT_L_BR,
 
     /* The total number of sprites. */
-    SPRITE_COUNT = 24
-} SpriteIndex;
+    SPRITE_TILE_COUNT = 24
+} SpriteTileIndex;
 
 
-#endif  /* DROPLET_SPRITE_INDEX_H */
+#endif  /* DROPLET_SPRITE_TILE_INDEX_H */

@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <gb/gb.h>
 #include "Droplet.h"
-#include "SpriteIndex.h"
+#include "SpriteTileIndex.h"
 
 /* ===== Definitions ===== */
 #define LOOP_TIME 50        /* TODO: Define this in a header somewhere. */

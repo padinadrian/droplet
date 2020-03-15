@@ -1,0 +1,45 @@
+Taken from: http://fms.komkon.org/stuff/gameboy.faq
+
+********************* I. GameBoy: General Description ************************
+
+    CPU:  8-bit Z80 work-alike at 4.194304MHz
+    RAM:  8kB internal
+    ROM:  256kBit, 512kBit, 1MBit, 2MBit and 4MBit cartridges are known
+          (32kB, 64kB, 128kB, 256kB and 512kB). Probably, there are 16kB
+          cartridges as well.
+    VRAM: 8kB internal
+
+    Sound: 4 channels each of which can be mapped either to the left
+           or to the right or to both speakers
+
+    Video:
+      Display: Reflective LCD 160x144 dots
+      Colors:  4 shades of gray
+      Sprites: 40 sprites of either 8x8 or 8x16 [switchable]
+
+    Communications: Serial port
+      Up to 4 Gameboys can be connected together using these ports
+
+    Power: 6 Volts, 0.7 Watts
+      4 AA Batteries             - 35 hours
+                       OR
+      Rechargable battery (NAKI) - 12 hours
+
+* What are the advantages of GB in comparison with other portable videogames?
+
+  The same reflective LCD screen which is considered to be the weak point of
+GameBoy, is its advantage. Other systems, such as Atari Lynx or SEGA GameGear,
+use backlighted color screens which consume several times more power than
+reflective LCD of GB. Thus, these systems need 6 AA batteries instead of 4 AAs
+needed by GB and drain these batteries in about 6 hours. Also, dots on GB's
+LCD are much smaller than dots on the color screens of other portables which
+[given that you have a good light source nearby] means that GB's LCD looks
+crisper. The other advantage of GameBoy is that it is the only portable
+videogame you can actually PUT INTO YOUR POCKET. Both Lynx and GameGear are
+too big for it. Speaking about variety of games available for GB, I would
+*NOT* consider it an advantage of GB if we are talking solely about its
+technical characteristics. Amount of software written for the system has
+nothing to do with the system's hardware architecture. It is rather determined
+by commercial success of the system and, in fact, by how it is marketed. There
+are many technologically superior systems which just didn't make it because of
+the poor marketing [TurboGrafx is an example].
