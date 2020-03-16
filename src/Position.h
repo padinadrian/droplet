@@ -23,7 +23,7 @@ typedef struct {
  * position in the pixel coordinate system.
  * Operation is performed inline on the object itself.
  */
-void GridPosToPixelPos(Position* grid_pos);
+void GridPosToPixelPos(Position* grid_pos_ptr);
 
 
 #endif  /* DROPLET_POSITION_H */

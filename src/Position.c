@@ -13,9 +13,9 @@
  * position in the pixel coordinate system.
  * Operation is performed inline on the object itself.
  */
-void GridPosToPixelPos(Position* grid_pos)
+void GridPosToPixelPos(Position* grid_pos_ptr)
 {
     /* TODO: Take scrolling into consideration */
-    grid_pos->x <<= 3;
-    grid_pos->y <<= 3;
+    grid_pos_ptr->x <<= 3;
+    grid_pos_ptr->y <<= 3;
 }
