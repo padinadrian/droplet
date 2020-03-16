@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "droplet_sprites.h": "c",
-        "spritetileindex.h": "c"
+        "spritetileindex.h": "c",
+        "gb.h": "c"
     }
 }
