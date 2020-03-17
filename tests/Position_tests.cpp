@@ -15,22 +15,22 @@ TEST(Position, GridPosToPixelPos1)
 {
     Position grid_pos = {0, 0};
     GridPosToPixelPos(&grid_pos);
-    EXPECT_EQ(grid_pos.x, 0);
-    EXPECT_EQ(grid_pos.y, 0);
+    EXPECT_EQ(grid_pos.x, 8);
+    EXPECT_EQ(grid_pos.y, 16);
 }
 
 TEST(Position, GridPosToPixelPos2)
 {
     Position grid_pos = {1, 10};
     GridPosToPixelPos(&grid_pos);
-    EXPECT_EQ(grid_pos.x, 8);
-    EXPECT_EQ(grid_pos.y, 80);
+    EXPECT_EQ(grid_pos.x, 16);
+    EXPECT_EQ(grid_pos.y, 96);
 }
 
 TEST(Position, GridPosToPixelPos3)
 {
     Position grid_pos = {19, 17};
     GridPosToPixelPos(&grid_pos);
-    EXPECT_EQ(grid_pos.x, 152);
-    EXPECT_EQ(grid_pos.y, 136);
+    EXPECT_EQ(grid_pos.x, 160);
+    EXPECT_EQ(grid_pos.y, 152);
 }
