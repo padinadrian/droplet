@@ -67,37 +67,29 @@ int DropletCheckMovement(
     DropletMap* map_ptr
 )
 {
-    printf(
-        "x: %c, y: %c, dir: %c\n",
-        ((unsigned char)cur_pos_ptr->x & 15) + '0',
-        ((unsigned char)cur_pos_ptr->y & 15) + '0',
-        (unsigned char)joypad_input + '0'
-    );
+    UINT8 x = cur_pos_ptr->x;
+    UINT8 y = cur_pos_ptr->y;
     switch (joypad_input)
     {
         case J_LEFT:
-            return !TileIsWall(
-                map_ptr,
-                cur_pos_ptr->x - 1,
-                cur_pos_ptr->y
+            return !(
+                TileIsWall(map_ptr, x - 1, y) ||
+                TileIsWall(map_ptr, x - 1, y + 1)
             );
         case J_RIGHT:
-            return !TileIsWall(
-                map_ptr,
-                cur_pos_ptr->x + 2,
-                cur_pos_ptr->y
+            return !(
+                TileIsWall(map_ptr, x + 2, y) ||
+                TileIsWall(map_ptr, x + 2, y + 1)
             );
         case J_UP:
-            return !TileIsWall(
-                map_ptr,
-                cur_pos_ptr->x,
-                cur_pos_ptr->y - 1
+            return !(
+                TileIsWall(map_ptr, x + 0, y - 1) ||
+                TileIsWall(map_ptr, x + 1, y - 1)
             );
         case J_DOWN:
-            return !TileIsWall(
-                map_ptr,
-                cur_pos_ptr->x,
-                cur_pos_ptr->y + 2
+            return !(
+                TileIsWall(map_ptr, x + 0, y + 2) ||
+                TileIsWall(map_ptr, x + 1, y + 2)
             );
         default:
             return 0;
@@ -123,12 +115,12 @@ void MoveDroplet(
                 )
             )
             {
-                droplet_ptr->pos.x -= 1;
                 SetSpriteTileSquare16(
                     &droplet_ptr->sprite,
                     SPRITE_DROPLET_16_NORMAL_L_TL
                 );
                 ScrollSpriteSquare16(&droplet_ptr->sprite, -8, 0);
+                droplet_ptr->pos.x -= 1;
                 droplet_ptr->facing_right = 0;
                 droplet_ptr->squat_counter = 0;
                 droplet_ptr->pressed = 1;
@@ -144,12 +136,12 @@ void MoveDroplet(
                 )
             )
             {
-                droplet_ptr->pos.x += 1;
                 SetSpriteTileSquare16(
                     &droplet_ptr->sprite,
                     SPRITE_DROPLET_16_NORMAL_R_TL
                 );
                 ScrollSpriteSquare16(&droplet_ptr->sprite, 8, 0);
+                droplet_ptr->pos.x += 1;
                 droplet_ptr->facing_right = 1;
                 droplet_ptr->squat_counter = 0;
                 droplet_ptr->pressed = 1;
@@ -165,7 +157,6 @@ void MoveDroplet(
                 )
             )
             {
-                droplet_ptr->pos.y -= 1;
                 SetSpriteTileSquare16(
                     &droplet_ptr->sprite,
                     (
@@ -175,6 +166,7 @@ void MoveDroplet(
                     )
                 );
                 ScrollSpriteSquare16(&droplet_ptr->sprite, 0, -8);
+                droplet_ptr->pos.y -= 1;
                 droplet_ptr->squat_counter = 0;
                 droplet_ptr->pressed = 1;
             }
@@ -189,7 +181,6 @@ void MoveDroplet(
                 )
             )
             {
-                droplet_ptr->pos.y += 1;
                 SetSpriteTileSquare16(
                     &droplet_ptr->sprite,
                     (
@@ -199,6 +190,7 @@ void MoveDroplet(
                     )
                 );
                 ScrollSpriteSquare16(&droplet_ptr->sprite, 0, 8);
+                droplet_ptr->pos.y += 1;
                 droplet_ptr->squat_counter = 0;
                 droplet_ptr->pressed = 1;
             }

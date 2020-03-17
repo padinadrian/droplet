@@ -18,4 +18,6 @@ void GridPosToPixelPos(Position* grid_pos_ptr)
     /* TODO: Take scrolling into consideration */
     grid_pos_ptr->x <<= 3;
     grid_pos_ptr->y <<= 3;
+    grid_pos_ptr->x += 8;
+    grid_pos_ptr->y += 16;
 }

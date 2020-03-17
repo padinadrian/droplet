@@ -5,6 +5,7 @@ add_executable(${PROJECT_NAME}_tests
     # Tests
     Position_tests.cpp
     DropletMap_tests.cpp
+    Droplet_tests.cpp
 
     # Sources
     ../src/Position.c
@@ -12,7 +13,6 @@ add_executable(${PROJECT_NAME}_tests
     ../src/DropletMap.c
     ../src/SpriteSquare16.c
 )
-set_target_properties(${PROJECT_NAME}_tests PROPERTIES LINKER_LANGUAGE CXX)
 
 # Add mock directories
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/mock")

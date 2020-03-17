@@ -73,11 +73,7 @@ int main()
 
     // SHOW_BKG;
     SHOW_SPRITES;
-    printf(
-        "x: %c, dir: %c\n",
-        ((unsigned char)droplet.pos.x & 15) + '0',
-        (unsigned char)joypad_input + '0'
-    );
+    SHOW_BKG;
 
     while (1) {
         /* Switch between normal and squished. */
