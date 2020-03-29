@@ -10,7 +10,7 @@
 #include "Droplet.h"
 #include "SpriteTileIndex.h"
 #include "SpriteSquare16.h"
-#include "tile_data/droplet_sprites.h"
+#include "data\tiles/droplet_sprites.h"
 
 /* ===== MAIN ===== */
 

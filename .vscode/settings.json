@@ -2,6 +2,8 @@
     "files.associations": {
         "droplet_sprites.h": "c",
         "spritetileindex.h": "c",
-        "gb.h": "c"
+        "gb.h": "c",
+        "droplet_splash_bg.h": "c",
+        "droplet_splash_tiles.h": "c"
     }
 }

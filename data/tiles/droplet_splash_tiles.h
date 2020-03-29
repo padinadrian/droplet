@@ -1,6 +1,6 @@
 /*
 
- DROPLET_SPRITES.H
+ DROPLET_SPLASH_TILES.H
 
  Include File.
 
@@ -10,7 +10,7 @@
   Compression          : None.
   Counter              : None.
   Tile size            : 8 x 8
-  Tiles                : 0 to 23
+  Tiles                : 0 to 85
 
   Palette colors       : None.
   SGB Palette          : None.
@@ -24,8 +24,8 @@
 
 
 /* Bank of tiles. */
-#define DropletSpritesBank 0
+#define DropletSplashTilesBank 0
 /* Start of tile array. */
-extern unsigned char DropletSprites[];
+extern unsigned char DropletSplashTiles[];
 
-/* End of DROPLET_SPRITES.H */
+/* End of DROPLET_SPLASH_TILES.H */

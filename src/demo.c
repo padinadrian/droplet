@@ -12,13 +12,13 @@
 #include "BackgroundTileIndex.h"
 #include "SpriteTileIndex.h"
 
-#include "tile_data\droplet_sprites.c"
-#include "tile_data\droplet_background_tiles.c"
-#include "map_data\droplet_level1_bg.c"
+#include "data\tiles\droplet_sprites.c"
+#include "data\tiles\droplet_background_tiles.c"
+#include "data/maps\droplet_level1_bg.c"
 
 /* ===== MAIN ===== */
 
-int main()
+int demo()
 {
     /* Local variables */
     DropletSprite droplet;

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "Droplet.h"
 #include "DropletMap.h"
-#include "map_data/droplet_level1_bg.c"
+#include "data/maps/droplet_level1_bg.c"
 
 int main()
 {
