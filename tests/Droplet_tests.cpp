@@ -15,7 +15,7 @@ extern "C" {
 TEST(Position, DropletCheckMovement)
 {
     // Initialize map
-    DropletMap level1_map;
+    BackgroundMap level1_map;
     level1_map.map_data = DropletBackgroundLevel1;
     level1_map.width = DropletBackgroundLevel1Width;
     level1_map.height = DropletBackgroundLevel1Height;

@@ -9,6 +9,8 @@ Use gb tile designer to make tiles
 export as gbdk c files
 remember to save fro 0 to N
 
+Pointer size on GB is 2 (16 bits)
+
 set_bkg_data - Set background sprite data
 set_bkg_tiles - Set background map data
 

@@ -6,14 +6,14 @@
 /* ===== Includes ===== */
 #include <gtest/gtest.h>
 extern "C" {
-    #include "DropletMap.h"
+    #include "BackgroundMap.h"
 }
 
 /* ===== Tests ===== */
 
 TEST(Position, TileIsWall1)
 {
-    DropletMap map;
+    BackgroundMap map;
     unsigned char map_data[4] = {0, 0x10, 0x10, 0};
     map.map_data = +map_data;
     map.width = 2;

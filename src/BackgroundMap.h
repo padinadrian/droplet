@@ -16,11 +16,19 @@ typedef struct {
     UINT8* map_data;
     UINT8 width;
     UINT8 height;
-} DropletMap;
+} BackgroundMap;
 
 /* ===== Functions ===== */
 
-/** Return 1 if the tile is a wall, 0 otherwise. */
-UINT8 TileIsWall(DropletMap* map_ptr, UINT8 x, UINT8 y);
+/**
+ * Set the background.
+ */
+void SetBackground(BackgroundMap* map_ptr);
+
+/**
+ * Check if a background tile is a wall.
+ * Return 1 if the tile is a wall, 0 otherwise.
+ */
+UINT8 TileIsWall(BackgroundMap* map_ptr, UINT8 x, UINT8 y);
 
 #endif  /* DROPLET_DROPLET_MAP_H */

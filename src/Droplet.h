@@ -8,7 +8,7 @@
 
 /* ===== Includes ===== */
 #include "SpriteSquare16.h"
-#include "DropletMap.h"
+#include "BackgroundMap.h"
 
 /* ===== Data Types ===== */
 
@@ -40,7 +40,7 @@ void DropletAnimate(DropletSprite* droplet_ptr);
 int DropletCheckMovement(
     UINT8 joypad_input,
     Position* cur_pos_ptr,
-    DropletMap* map_ptr
+    BackgroundMap* map_ptr
 );
 
 /**
@@ -49,7 +49,7 @@ int DropletCheckMovement(
 void MoveDroplet(
     DropletSprite* droplet_ptr,
     UINT8 direction,
-    DropletMap* map_ptr
+    BackgroundMap* map_ptr
 );
 
 

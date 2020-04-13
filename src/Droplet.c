@@ -64,7 +64,7 @@ void DropletAnimate(DropletSprite* droplet_ptr)
 int DropletCheckMovement(
     UINT8 joypad_input,
     Position* cur_pos_ptr,
-    DropletMap* map_ptr
+    BackgroundMap* map_ptr
 )
 {
     UINT8 x = cur_pos_ptr->x;
@@ -102,7 +102,7 @@ int DropletCheckMovement(
 void MoveDroplet(
     DropletSprite* droplet_ptr,
     UINT8 direction,
-    DropletMap* map_ptr
+    BackgroundMap* map_ptr
 )
 {
     switch (direction) {

@@ -10,7 +10,7 @@ add_executable(${PROJECT_NAME}_tests
     # Sources
     ../src/Position.c
     ../src/Droplet.c
-    ../src/DropletMap.c
+    ../src/BackgroundMap.c
     ../src/SpriteSquare16.c
 )
 

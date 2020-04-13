@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include "Droplet.h"
-#include "DropletMap.h"
+#include "BackgroundMap.h"
 #include "data/maps/droplet_level1_bg.c"
 
 int main()
 {
-    DropletMap level1_map;
+    BackgroundMap level1_map;
     Position droplet_grid_pos;
     Position droplet_pixel_pos;
     UINT8 joypad_input = 0;

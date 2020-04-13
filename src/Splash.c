@@ -9,6 +9,7 @@
 #include "data/tiles/droplet_splash_tiles.h"
 #include "data/tiles/droplet_sprites.h"
 #include "src/SpriteTileIndex.h"
+#include "src/BackgroundMap.h"
 
 
 void Splash()
@@ -18,15 +19,14 @@ void Splash()
     UINT8 i = 0;
     const UINT8 NUM_RAINDROPS = 32;
 
+    BackgroundMap splash_bkg;
+    splash_bkg.width = DropletSplashBackgroundWidth;
+    splash_bkg.height = DropletSplashBackgroundHeight;
+    splash_bkg.map_data = DropletSplashBackground;
+
     /* Initialize background */
     set_bkg_data(0, 86, DropletSplashTiles);
-    set_bkg_tiles(
-        0,
-        0,
-        DropletSplashBackgroundWidth,
-        DropletSplashBackgroundHeight,
-        DropletSplashBackground
-    );
+    SetBackground(&splash_bkg);
 
     /* Initialize sprites */
     set_sprite_data(0, SPRITE_TILE_COUNT, DropletSprites);

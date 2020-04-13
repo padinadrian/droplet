@@ -17,7 +17,7 @@ typedef enum {
     BG_TILE_EXTERIOR_WALL_BR = 7,
 
     /* The total number of sprites. */
-    BG_TILE_COUNT = 17
+    BG_TILE_COUNT = 24
 
 } BackgroundTileIndex;
 

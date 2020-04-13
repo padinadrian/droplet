@@ -22,7 +22,7 @@ int demo()
 {
     /* Local variables */
     DropletSprite droplet;
-    DropletMap level1_map;
+    BackgroundMap level1_map;
     Position droplet_pixel_pos;
     int i, j;
     UINT8 joypad_input = 0;
