@@ -17,7 +17,7 @@
 int main()
 {
     /* Local variables */
-    DropletSprite droplet;
+    Droplet droplet;
     UINT8 initial_x = 88;
     UINT8 initial_y = 78;
 

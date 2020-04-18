@@ -8,6 +8,7 @@
 
 /* ===== Includes ===== */
 #include <gb/gb.h>
+#include "Droplet.h"
 #include "Position.h"
 #include "BackgroundMap.h"
 
@@ -22,28 +23,31 @@ typedef struct {
 /* ===== Functions ===== */
 
 /**
- * Load the level.
+ * Assigns the level map data to the level.
  */
-inline void LoadLevel(Level* level_ptr)
-{
-    set_bkg_tiles(
-        0,
-        0,
-        DropletBackgroundLevel1Width,
-        DropletBackgroundLevel1Height,
-        map_data
-    );
-}
+void SetLevelBackground(
+    Level* level_ptr,
+    UINT8* map_data,
+    UINT8 map_width,
+    UINT8 map_height
+);
 
 /**
- * Check if Droplet has reached the end of the level.
+ * Loads the level:
+ *  - Sets the background.
+ *  - Moves the sprites to the starting locations.
+ *  - Initializes Droplet and enemies.
+ */
+void LoadLevel(Level* level_ptr, Droplet* droplet_ptr);
+
+/**
+ * Checks if Droplet has reached the end of the level.
  * Return 1 if the level is complete, otherwise 0.
  */
-inline UINT8 IsLevelComplete(Position* droplet_pos_ptr, Level* level_ptr)
-{
-    droplet_pos_ptr->x == level_ptr->exit_pos.x;
-    droplet_pos_ptr->y == level_ptr->exit_pos.y;
-}
+UINT8 IsLevelComplete(
+    Level* level_ptr,
+    Position* droplet_pos_ptr
+);
 
 
 #endif  /* DROPLET_LEVEL_H */

@@ -11,6 +11,7 @@
 #include "src/SpriteTileIndex.h"
 #include "src/BackgroundMap.h"
 
+/* ===== Functions ===== */
 
 void Splash()
 {

@@ -8,6 +8,7 @@
 #include <gb/gb.h>
 #include "Droplet.h"
 #include "SpriteTileIndex.h"
+#include "SpriteCounter.h"
 
 /* ===== Definitions ===== */
 #define LOOP_TIME 50        /* TODO: Define this in a header somewhere. */
@@ -20,8 +21,15 @@
 /**
  * Initialize Droplet sprite and data.
  */
-void DropletInitialize(DropletSprite* droplet_ptr)
+void DropletInitialize(Droplet* droplet_ptr)
 {
+    /* Set sprite IDs. */
+    droplet_ptr->sprite.top_left = GetSpriteID();
+    droplet_ptr->sprite.bottom_left = GetSpriteID();
+    droplet_ptr->sprite.top_right = GetSpriteID();
+    droplet_ptr->sprite.bottom_right = GetSpriteID();
+
+    /* Reset status flags and counters. */
     droplet_ptr->squat_counter = 0;
     droplet_ptr->squatting = 0;
     droplet_ptr->facing_right = 1;
@@ -38,7 +46,7 @@ void DropletInitialize(DropletSprite* droplet_ptr)
  * Animate Droplet squatting when he is idle.
  * This function should be called once per game loop.
  */
-void DropletAnimate(DropletSprite* droplet_ptr)
+void DropletAnimate(Droplet* droplet_ptr)
 {
     UINT8 counter = 0;
     UINT8 squatting = 0;
@@ -100,7 +108,7 @@ int DropletCheckMovement(
  * Move the Droplet sprite in the desired direction.
  */
 void MoveDroplet(
-    DropletSprite* droplet_ptr,
+    Droplet* droplet_ptr,
     UINT8 direction,
     BackgroundMap* map_ptr
 )

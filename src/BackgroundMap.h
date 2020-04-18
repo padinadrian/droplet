@@ -3,8 +3,8 @@
  *  Date:   2020/03/15
  */
 
-#ifndef DROPLET_DROPLET_MAP_H
-#define DROPLET_DROPLET_MAP_H
+#ifndef DROPLET_BACKGROUND_MAP_H
+#define DROPLET_BACKGROUND_MAP_H
 
 /* ===== Includes ===== */
 #include <gb/gb.h>
@@ -31,4 +31,4 @@ void SetBackground(BackgroundMap* map_ptr);
  */
 UINT8 TileIsWall(BackgroundMap* map_ptr, UINT8 x, UINT8 y);
 
-#endif  /* DROPLET_DROPLET_MAP_H */
+#endif  /* DROPLET_BACKGROUND_MAP_H */

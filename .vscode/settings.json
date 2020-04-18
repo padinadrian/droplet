@@ -4,6 +4,10 @@
         "spritetileindex.h": "c",
         "gb.h": "c",
         "droplet_splash_bg.h": "c",
-        "droplet_splash_tiles.h": "c"
+        "droplet_splash_tiles.h": "c",
+        "position.h": "c",
+        "backgroundmap.h": "c",
+        "droplet_level1_bg.h": "c",
+        "droplet_background_tiles.h": "c"
     }
 }

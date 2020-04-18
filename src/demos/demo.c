@@ -21,7 +21,7 @@
 int demo()
 {
     /* Local variables */
-    DropletSprite droplet;
+    Droplet droplet;
     BackgroundMap level1_map;
     Position droplet_pixel_pos;
     int i, j;
