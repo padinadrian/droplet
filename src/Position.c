@@ -8,6 +8,19 @@
 
 /* ===== Functions ===== */
 
+/** Copy a Position object from dest into src. */
+void PositionCopy(Position* dest, const Position* src)
+{
+    dest->x = src->x;
+    dest->y = src->y;
+}
+
+/** Compare two Positions to see if they are the same. */
+UINT8 PositionCompare(const Position* pos1, const Position* pos2)
+{
+    return ((pos1->x == pos2->x) && (pos1->y == pos2->y));
+}
+
 /**
  * Convert a position in the grid coordinate system to a
  * position in the pixel coordinate system.

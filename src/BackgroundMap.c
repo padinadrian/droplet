@@ -5,6 +5,7 @@
 
 /* ===== Includes ===== */
 #include "BackgroundMap.h"
+#include "BackgroundTileIndex.h"
 
 /* ===== Functions ===== */
 
@@ -24,5 +25,11 @@ void SetBackground(BackgroundMap* map_ptr)
 UINT8 TileIsWall(BackgroundMap* map_ptr, UINT8 x, UINT8 y)
 {
     int index = (map_ptr->width * (int)y) + x;
-    return map_ptr->map_data[index] != 0;
+    return (
+        (map_ptr->map_data[index] != BG_TILE_STAIRCASE_TL) &&
+        (map_ptr->map_data[index] != BG_TILE_STAIRCASE_BL) &&
+        (map_ptr->map_data[index] != BG_TILE_STAIRCASE_TR) &&
+        (map_ptr->map_data[index] != BG_TILE_STAIRCASE_BR) &&
+        (map_ptr->map_data[index] != BG_TILE_NULL)
+    );
 }

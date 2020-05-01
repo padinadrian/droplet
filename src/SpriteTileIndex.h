@@ -10,6 +10,10 @@
 
 /* Reference for sprite tile indices. */
 typedef enum {
+
+    /* The null sprite. */
+    SPRITE_NULL = 0,
+
     /* Droplet, 16x16, normal, facing right  */
     SPRITE_DROPLET_16_NORMAL_R_TL   = 8,
     SPRITE_DROPLET_16_NORMAL_R_BL,

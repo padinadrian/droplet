@@ -15,9 +15,4 @@
  */
 void LevelMenu();
 
-/**
- * Main game loop which runs the given level.
- */
-void PlayLevel(Level* level_ptr);
-
 #endif  /* DROPLET_LEVEL_MENU_H */

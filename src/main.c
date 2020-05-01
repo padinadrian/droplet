@@ -10,8 +10,10 @@
 #include "data/tiles/droplet_sprites.h"
 #include "data/tiles/droplet_background_tiles.h"
 #include "BackgroundTileIndex.h"
+#include "SpriteManager.h"
 #include "SpriteTileIndex.h"
 #include "LevelMenu.h"
+#include "Levels.h"
 #include "Splash.h"
 
 /* ===== MAIN ===== */
@@ -24,14 +26,15 @@ int main()
     set_sprite_data(0, SPRITE_TILE_COUNT, DropletSprites);
     set_bkg_data(0, BG_TILE_COUNT, DropletBkgTiles);
 
+    /* Initialize internal data. */
+    InitializeSpriteCounter();
+    InitializeLevels();
+
     while (1)
     {
         /* Display splash screen. */
         /* "PRESS START" */
         Splash();
-
-        /* TODO: Remove later. */
-        printf("Done");
 
         /* Save file select. */
 
@@ -39,6 +42,10 @@ int main()
 
         /* Level select. */
         LevelMenu();
+
+        /* TODO: Remove later. */
+        printf("Done");
+        delay(5000);
     }
 
     return 0;

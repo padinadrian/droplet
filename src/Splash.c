@@ -87,4 +87,9 @@ void Splash()
         }
         delay(50);
     }
+
+    /* Do this manually since IDs were not allocated through SpriteManager. */
+    for (i = 0; i < 32; ++i) {
+        set_sprite_tile(i, SPRITE_NULL);
+    }
 }

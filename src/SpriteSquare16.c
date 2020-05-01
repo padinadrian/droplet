@@ -13,14 +13,14 @@
  * Assumes tiles are continuous in the pattern: TL, BL, TR, BR
  */
 void SetSpriteTileSquare16(
-        SpriteSquare16* sprite,
+        SpriteSquare16* sprite_ptr,
         UINT8 top_left_tile)
 {
     /* set_sprite_tile(<sprite_id>, <sprite_data_index>); */
-    set_sprite_tile(sprite->top_left,     top_left_tile);
-    set_sprite_tile(sprite->bottom_left,  top_left_tile + 1);
-    set_sprite_tile(sprite->top_right,    top_left_tile + 2);
-    set_sprite_tile(sprite->bottom_right, top_left_tile + 3);
+    set_sprite_tile(sprite_ptr->top_left,     top_left_tile);
+    set_sprite_tile(sprite_ptr->bottom_left,  top_left_tile + 1);
+    set_sprite_tile(sprite_ptr->top_right,    top_left_tile + 2);
+    set_sprite_tile(sprite_ptr->bottom_right, top_left_tile + 3);
 }
 
 /**

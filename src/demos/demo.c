@@ -12,9 +12,9 @@
 #include "BackgroundTileIndex.h"
 #include "SpriteTileIndex.h"
 
-#include "data\tiles\droplet_sprites.c"
-#include "data\tiles\droplet_background_tiles.c"
-#include "data/maps\droplet_level1_bg.c"
+#include "data/tiles/droplet_sprites.c"
+#include "data/tiles/droplet_background_tiles.c"
+#include "data/maps/droplet_level1_bg.c"
 
 /* ===== MAIN ===== */
 

@@ -6,9 +6,10 @@
 /* ===== Includes ===== */
 #include <stdio.h>
 #include <gb/gb.h>
+#include "Debug.h"
 #include "Droplet.h"
 #include "SpriteTileIndex.h"
-#include "SpriteCounter.h"
+#include "SpriteManager.h"
 
 /* ===== Definitions ===== */
 #define LOOP_TIME 50        /* TODO: Define this in a header somewhere. */
@@ -21,13 +22,9 @@
 /**
  * Initialize Droplet sprite and data.
  */
-void DropletInitialize(Droplet* droplet_ptr)
+void DropletInitialize(Droplet* droplet_ptr, Position* start_pos)
 {
-    /* Set sprite IDs. */
-    droplet_ptr->sprite.top_left = GetSpriteID();
-    droplet_ptr->sprite.bottom_left = GetSpriteID();
-    droplet_ptr->sprite.top_right = GetSpriteID();
-    droplet_ptr->sprite.bottom_right = GetSpriteID();
+    SpriteSquare16* sprite_ptr = &(droplet_ptr->sprite);
 
     /* Reset status flags and counters. */
     droplet_ptr->squat_counter = 0;
@@ -35,11 +32,19 @@ void DropletInitialize(Droplet* droplet_ptr)
     droplet_ptr->facing_right = 1;
     droplet_ptr->pressed = 0;
 
+    /* Set sprite IDs. */
+    sprite_ptr->top_left = NewSpriteID();
+    sprite_ptr->bottom_left = NewSpriteID();
+    sprite_ptr->top_right = NewSpriteID();
+    sprite_ptr->bottom_right = NewSpriteID();
+
     /* Droplet starts off in normal position facing right. */
     SetSpriteTileSquare16(
-        &droplet_ptr->sprite,
-        SPRITE_DROPLET_16_NORMAL_R_TL
+        sprite_ptr,
+        (UINT8)SPRITE_DROPLET_16_NORMAL_R_TL
     );
+
+    PositionCopy(&droplet_ptr->pos, start_pos);
 }
 
 /**

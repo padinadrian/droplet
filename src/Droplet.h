@@ -26,7 +26,7 @@ typedef struct {
 /**
  * Initialize Droplet sprite and data.
  */
-void DropletInitialize(Droplet* droplet_ptr);
+void DropletInitialize(Droplet* droplet_ptr, Position* start_pos);
 
 /**
  * Animate Droplet squatting when he is idle.

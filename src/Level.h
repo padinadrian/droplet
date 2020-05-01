@@ -33,14 +33,6 @@ void SetLevelBackground(
 );
 
 /**
- * Loads the level:
- *  - Sets the background.
- *  - Moves the sprites to the starting locations.
- *  - Initializes Droplet and enemies.
- */
-void LoadLevel(Level* level_ptr, Droplet* droplet_ptr);
-
-/**
  * Checks if Droplet has reached the end of the level.
  * Return 1 if the level is complete, otherwise 0.
  */
