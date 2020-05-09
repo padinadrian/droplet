@@ -4,7 +4,7 @@
  */
 
 /* ===== Includes ===== */
-#include "SpriteManager.h"
+#include "Sprites.h"
 #include "SpriteTileIndex.h"
 
 /* ===== Static Variables ===== */
@@ -32,4 +32,10 @@ void ClearExistingSprites()
 UINT8 NewSpriteID()
 {
     return sprite_counter++;
+}
+
+/** Move the sprite including the offset. */
+void MoveSprite(UINT8 sprite_id, UINT8 x_pos, UINT8 y_pos)
+{
+    move_sprite(sprite_id, x_pos + 8, y_pos + 16);
 }

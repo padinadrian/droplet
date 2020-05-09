@@ -33,7 +33,7 @@ void Splash()
     set_sprite_data(0, SPRITE_TILE_COUNT, DropletSprites);
     for (i = 0; i < NUM_RAINDROPS; i++)
     {
-        set_sprite_tile(i, SPRITE_RAIN_PHASE_1);
+        set_sprite_tile(i, SPRITE_RAIN);
     }
 
     move_sprite(0,  0x00, 0x00);
@@ -88,7 +88,7 @@ void Splash()
         delay(50);
     }
 
-    /* Do this manually since IDs were not allocated through SpriteManager. */
+    /* Do this manually since IDs were not allocated through NewSpriteID. */
     for (i = 0; i < 32; ++i) {
         set_sprite_tile(i, SPRITE_NULL);
     }

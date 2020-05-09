@@ -20,6 +20,25 @@ typedef enum {
 typedef struct {
     Position pos;
     SwitchState state;
+    UINT8 sprite;
 } Switch;
+
+/* ===== Functions ===== */
+
+/** Set the switch state and display the animation. */
+void SetSwitchState(Switch* switch_ptr, SwitchState state);
+
+/** Change the switch state to the opposite of the current state. */
+void FlipSwitch(Switch* switch_ptr);
+
+/**
+ * Search through the list of switches and flip any that
+ * are close to the given position.
+ */
+void FlipNearbySwitches(
+    Switch* switches,
+    UINT8 num_switches,
+    Position* droplet_pos
+);
 
 #endif  /* DROPLET_SWITCH_H */

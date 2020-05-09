@@ -5,6 +5,7 @@
 
 /* ===== Includes ===== */
 #include "SpriteSquare16.h"
+#include "Sprites.h"
 
 /* ===== Functions ===== */
 
@@ -32,19 +33,19 @@ void MoveSpriteSquare16(
         UINT8 y_pos)
 {
     /* set_sprite_tile(<sprite_id>, <sprite_data_index>); */
-    move_sprite(sprite->top_left,     x_pos + 0, y_pos + 0);
-    move_sprite(sprite->bottom_left,  x_pos + 0, y_pos + 8);
-    move_sprite(sprite->top_right,    x_pos + 8, y_pos + 0);
-    move_sprite(sprite->bottom_right, x_pos + 8, y_pos + 8);
+    MoveSprite(sprite->top_left,     x_pos + 0, y_pos + 0);
+    MoveSprite(sprite->bottom_left,  x_pos + 0, y_pos + 8);
+    MoveSprite(sprite->top_right,    x_pos + 8, y_pos + 0);
+    MoveSprite(sprite->bottom_right, x_pos + 8, y_pos + 8);
 }
 
 /**
  * Scroll a 16x16 sprite all at once.
  */
 void ScrollSpriteSquare16(
-    SpriteSquare16* sprite,
-    UINT8 x_scroll,
-    UINT8 y_scroll)
+        SpriteSquare16* sprite,
+        UINT8 x_scroll,
+        UINT8 y_scroll)
 {
     /* set_sprite_tile(<sprite_id>, <sprite_data_index>); */
     scroll_sprite(sprite->top_left,     x_scroll, y_scroll);

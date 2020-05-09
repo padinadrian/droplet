@@ -10,7 +10,7 @@
 #include "data/tiles/droplet_sprites.h"
 #include "data/tiles/droplet_background_tiles.h"
 #include "BackgroundTileIndex.h"
-#include "SpriteManager.h"
+#include "Sprites.h"
 #include "SpriteTileIndex.h"
 #include "LevelMenu.h"
 #include "Levels.h"

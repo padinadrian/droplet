@@ -9,7 +9,7 @@
 #include "Debug.h"
 #include "Droplet.h"
 #include "SpriteTileIndex.h"
-#include "SpriteManager.h"
+#include "Sprites.h"
 
 /* ===== Definitions ===== */
 #define LOOP_TIME 50        /* TODO: Define this in a header somewhere. */
@@ -72,61 +72,15 @@ void DropletAnimate(Droplet* droplet_ptr)
 }
 
 /**
- * Helper function - check edge detection before moving sprite.
- */
-int DropletCheckMovement(
-    UINT8 joypad_input,
-    Position* cur_pos_ptr,
-    BackgroundMap* map_ptr
-)
-{
-    UINT8 x = cur_pos_ptr->x;
-    UINT8 y = cur_pos_ptr->y;
-    switch (joypad_input)
-    {
-        case J_LEFT:
-            return !(
-                TileIsWall(map_ptr, x - 1, y) ||
-                TileIsWall(map_ptr, x - 1, y + 1)
-            );
-        case J_RIGHT:
-            return !(
-                TileIsWall(map_ptr, x + 2, y) ||
-                TileIsWall(map_ptr, x + 2, y + 1)
-            );
-        case J_UP:
-            return !(
-                TileIsWall(map_ptr, x + 0, y - 1) ||
-                TileIsWall(map_ptr, x + 1, y - 1)
-            );
-        case J_DOWN:
-            return !(
-                TileIsWall(map_ptr, x + 0, y + 2) ||
-                TileIsWall(map_ptr, x + 1, y + 2)
-            );
-        default:
-            return 0;
-    }
-}
-
-/**
  * Move the Droplet sprite in the desired direction.
  */
 void MoveDroplet(
-    Droplet* droplet_ptr,
-    UINT8 direction,
-    BackgroundMap* map_ptr
-)
+        Droplet* droplet_ptr,
+        UINT8 direction)
 {
     switch (direction) {
         case J_LEFT: {
-            if (!droplet_ptr->pressed &&
-                DropletCheckMovement(
-                    direction,
-                    &droplet_ptr->pos,
-                    map_ptr
-                )
-            )
+            if (!droplet_ptr->pressed)
             {
                 SetSpriteTileSquare16(
                     &droplet_ptr->sprite,
@@ -141,13 +95,7 @@ void MoveDroplet(
             break;
         }
         case J_RIGHT: {
-            if (!droplet_ptr->pressed &&
-                DropletCheckMovement(
-                    direction,
-                    &droplet_ptr->pos,
-                    map_ptr
-                )
-            )
+            if (!droplet_ptr->pressed)
             {
                 SetSpriteTileSquare16(
                     &droplet_ptr->sprite,
@@ -162,13 +110,7 @@ void MoveDroplet(
             break;
         }
         case J_UP: {
-            if (!droplet_ptr->pressed &&
-                DropletCheckMovement(
-                    direction,
-                    &droplet_ptr->pos,
-                    map_ptr
-                )
-            )
+            if (!droplet_ptr->pressed)
             {
                 SetSpriteTileSquare16(
                     &droplet_ptr->sprite,
@@ -186,13 +128,7 @@ void MoveDroplet(
             break;
         }
         case J_DOWN: {
-            if (!droplet_ptr->pressed &&
-                DropletCheckMovement(
-                    direction,
-                    &droplet_ptr->pos,
-                    map_ptr
-                )
-            )
+            if (!droplet_ptr->pressed)
             {
                 SetSpriteTileSquare16(
                     &droplet_ptr->sprite,

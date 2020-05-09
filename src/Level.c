@@ -31,3 +31,42 @@ UINT8 IsLevelComplete(
         &(level_ptr->exit_pos)
     );
 }
+
+/**
+ * Helper function - check edge detection before moving sprite.
+ */
+int DropletCheckMovement(
+        Level* level_ptr,
+        Droplet* droplet_ptr,
+        UINT8 joypad_input)
+{
+    UINT8 x = droplet_ptr->pos.x;
+    UINT8 y = droplet_ptr->pos.y;
+    BackgroundMap* map_ptr = &(level_ptr->level_map);
+    switch (joypad_input)
+    {
+        case J_LEFT:
+            return !(
+                TileIsWall(map_ptr, x - 1, y) ||
+                TileIsWall(map_ptr, x - 1, y + 1)
+            );
+        case J_RIGHT:
+            return !(
+                TileIsWall(map_ptr, x + 2, y) ||
+                TileIsWall(map_ptr, x + 2, y + 1)
+            );
+        case J_UP:
+            return !(
+                TileIsWall(map_ptr, x + 0, y - 1) ||
+                TileIsWall(map_ptr, x + 1, y - 1)
+            );
+        case J_DOWN:
+            return !(
+                TileIsWall(map_ptr, x + 0, y + 2) ||
+                TileIsWall(map_ptr, x + 1, y + 2)
+            );
+        default:
+            droplet_ptr->pressed = 0;
+            return 0;
+    }
+}

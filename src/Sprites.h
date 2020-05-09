@@ -28,4 +28,9 @@ void ClearExistingSprites();
  */
 UINT8 NewSpriteID();
 
+/**
+ * Move the sprite including the offset.
+ */
+void MoveSprite(UINT8 sprite_id, UINT8 x_pos, UINT8 y_pos);
+
 #endif  /* DROPLET_SPRITE_MANAGER_H */

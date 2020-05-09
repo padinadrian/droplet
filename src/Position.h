@@ -31,6 +31,12 @@ void PositionCopy(Position* dest, const Position* src);
 UINT8 PositionCompare(const Position* pos1, const Position* pos2);
 
 /**
+ * Check if two points are close to each other.
+ * TODO: Only checks if points are within 8 pixels. Distance should be input.
+ */
+UINT8 PositionProximityCheck(const Position* pos1, const Position* pos2);
+
+/**
  * Convert a position in the grid coordinate system to a
  * position in the pixel coordinate system.
  * Operation is performed inline on the object itself.

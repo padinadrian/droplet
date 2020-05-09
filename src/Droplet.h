@@ -7,8 +7,8 @@
 #define DROPLET_DROPLET_H
 
 /* ===== Includes ===== */
+#include "Position.h"
 #include "SpriteSquare16.h"
-#include "BackgroundMap.h"
 
 /* ===== Data Types ===== */
 
@@ -35,23 +35,8 @@ void DropletInitialize(Droplet* droplet_ptr, Position* start_pos);
 void DropletAnimate(Droplet* droplet_ptr);
 
 /**
- * Helper function - check edge detection before moving sprite.
- */
-int DropletCheckMovement(
-    UINT8 joypad_input,
-    Position* cur_pos_ptr,
-    BackgroundMap* map_ptr
-);
-
-/**
  * Initialize Droplet sprite.
  */
-void MoveDroplet(
-    Droplet* droplet_ptr,
-    UINT8 direction,
-    BackgroundMap* map_ptr
-);
-
-
+void MoveDroplet(Droplet* droplet_ptr, UINT8 direction);
 
 #endif  /* DROPLET_DROPLET_H */

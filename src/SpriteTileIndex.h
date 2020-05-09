@@ -38,15 +38,13 @@ typedef enum {
     SPRITE_DROPLET_16_SQUAT_L_TR,
     SPRITE_DROPLET_16_SQUAT_L_BR,
 
-    /* Splash rain */
-    SPRITE_RAIN_PHASE_1 = 24,
-    SPRITE_RAIN_PHASE_2,
-    SPRITE_RAIN_PHASE_3,
-    SPRITE_RAIN_PHASE_4,
+    SPRITE_RAIN = 24,
+    SPRITE_GATE = 25,
+    SPRITE_SWITCH_OFF = 26,
+    SPRITE_SWITCH_ON = 27,
 
     /* The total number of sprites. */
     SPRITE_TILE_COUNT
 } SpriteTileIndex;
-
 
 #endif  /* DROPLET_SPRITE_TILE_INDEX_H */

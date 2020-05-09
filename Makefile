@@ -29,3 +29,7 @@ droplet.gb: $(OBJECTS)
 clean:
 	rm -f $(OBJECTS) droplet.gb
 
+.PHONY: play
+play: droplet.gb
+	/mnt/c/Users/apadi/Documents/projects/gameboy/bgb_emulator/bgb.exe build/bin/$^ &
+

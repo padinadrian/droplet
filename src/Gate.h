@@ -20,6 +20,15 @@ typedef enum {
 typedef struct {
     Position pos;
     GateState state;
+    UINT8 sprite;
 } Gate;
+
+/* ===== Functions ===== */
+
+/** Set the gate state and display the animation. */
+void SetGateState(Gate* gate_ptr, GateState state);
+
+/** Change the gate state to the opposite of the current state. */
+void FlipGate(Gate* gate_ptr);
 
 #endif  /* DROPLET_GATE_H */

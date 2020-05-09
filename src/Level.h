@@ -8,6 +8,8 @@
 
 /* ===== Includes ===== */
 #include <gb/gb.h>
+#include "Gate.h"
+#include "Switch.h"
 #include "Droplet.h"
 #include "Position.h"
 #include "BackgroundMap.h"
@@ -18,6 +20,10 @@ typedef struct {
     BackgroundMap level_map;
     Position droplet_start_pos;
     Position exit_pos;
+    Switch* switch_list;
+    Gate* gate_list;
+    UINT8 num_switches;
+    UINT8 num_gates;
 } Level;
 
 /* ===== Functions ===== */
@@ -41,5 +47,13 @@ UINT8 IsLevelComplete(
     Position* droplet_pos_ptr
 );
 
+/**
+ * Helper function - check edge detection before moving sprite.
+ */
+int DropletCheckMovement(
+    Level* level_ptr,
+    Droplet* droplet_ptr,
+    UINT8 joypad_input
+);
 
 #endif  /* DROPLET_LEVEL_H */
