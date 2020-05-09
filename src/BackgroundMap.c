@@ -22,9 +22,11 @@ void SetBackground(BackgroundMap* map_ptr)
 }
 
 /** Return 1 if the tile is a wall, 0 otherwise. */
-UINT8 TileIsWall(BackgroundMap* map_ptr, UINT8 x, UINT8 y)
+UINT8 TileIsWall(BackgroundMap* map_ptr, Position* pos_ptr)
 {
-    int index = (map_ptr->width * (int)y) + x;
+    UINT8 x = pos_ptr->x;
+    UINT8 y = pos_ptr->y;
+    UINT16 index = (map_ptr->width * (UINT16)y) + x;
     return (
         (map_ptr->map_data[index] != BG_TILE_STAIRCASE_TL) &&
         (map_ptr->map_data[index] != BG_TILE_STAIRCASE_BL) &&

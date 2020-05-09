@@ -69,3 +69,19 @@ void CheckGateSwitches(
         }
     }
 }
+
+/** Check if the given position is a closed gate. */
+UINT8 PosIsClosedGate(Gate* gates, UINT8 num_gates, Position* pos_ptr)
+{
+    UINT8 i;
+    UINT8 found = 0;
+    UINT8 comp = 0;
+    for (i = 0; i < num_gates; ++i) {
+        comp = PositionCompare(&(gates[i].pos), pos_ptr);
+        if (comp && (GATE_CLOSED == gates[i].state)) {
+            found = 1;
+            break;
+        }
+    }
+    return found;
+}

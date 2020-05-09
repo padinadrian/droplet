@@ -29,6 +29,6 @@ void SetBackground(BackgroundMap* map_ptr);
  * Check if a background tile is a wall.
  * Return 1 if the tile is a wall, 0 otherwise.
  */
-UINT8 TileIsWall(BackgroundMap* map_ptr, UINT8 x, UINT8 y);
+UINT8 TileIsWall(BackgroundMap* map_ptr, Position* pos_ptr);
 
 #endif  /* DROPLET_BACKGROUND_MAP_H */

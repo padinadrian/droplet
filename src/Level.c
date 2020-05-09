@@ -40,33 +40,55 @@ int DropletCheckMovement(
         Droplet* droplet_ptr,
         UINT8 joypad_input)
 {
-    UINT8 x = droplet_ptr->pos.x;
-    UINT8 y = droplet_ptr->pos.y;
-    BackgroundMap* map_ptr = &(level_ptr->level_map);
+    Position next_pos1;
+    Position next_pos2;
+    Position next_px_pos1;
+    Position next_px_pos2;
+    BackgroundMap* map_ptr;
+    
+    map_ptr = &(level_ptr->level_map);
+
+    PositionCopy(&next_pos1, &(droplet_ptr->pos));
+    PositionCopy(&next_pos2, &(droplet_ptr->pos));
+
+    /* Determine which tiles Droplet is trying to move into. */
     switch (joypad_input)
     {
         case J_LEFT:
-            return !(
-                TileIsWall(map_ptr, x - 1, y) ||
-                TileIsWall(map_ptr, x - 1, y + 1)
-            );
+            next_pos1.x -= 1;
+            next_pos2.x -= 1;
+            next_pos2.y += 1;
+            break;
         case J_RIGHT:
-            return !(
-                TileIsWall(map_ptr, x + 2, y) ||
-                TileIsWall(map_ptr, x + 2, y + 1)
-            );
+            next_pos1.x += 2;
+            next_pos2.x += 2;
+            next_pos2.y += 1;
+            break;
         case J_UP:
-            return !(
-                TileIsWall(map_ptr, x + 0, y - 1) ||
-                TileIsWall(map_ptr, x + 1, y - 1)
-            );
+            next_pos1.y -= 1;
+            next_pos2.x += 1;
+            next_pos2.y -= 1;
+            break;
         case J_DOWN:
-            return !(
-                TileIsWall(map_ptr, x + 0, y + 2) ||
-                TileIsWall(map_ptr, x + 1, y + 2)
-            );
+            next_pos1.y += 2;
+            next_pos2.x += 1;
+            next_pos2.y += 2;
+            break;
         default:
+            /* TODO: This should be unreachable. */
             droplet_ptr->pressed = 0;
             return 0;
     }
+
+    PositionCopy(&next_px_pos1, &next_pos1);
+    PositionCopy(&next_px_pos2, &next_pos2);
+    GridPosToPixelPos(&next_px_pos1);
+    GridPosToPixelPos(&next_px_pos2);
+
+    return !(
+        TileIsWall(map_ptr, &next_pos1) ||
+        TileIsWall(map_ptr, &next_pos2) ||
+        PosIsClosedGate(level_ptr->gates, level_ptr->num_gates, &next_px_pos1) ||
+        PosIsClosedGate(level_ptr->gates, level_ptr->num_gates, &next_px_pos2)
+    );
 }
