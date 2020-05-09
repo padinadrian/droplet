@@ -8,8 +8,6 @@
 #include "Switch.h"
 #include "SpriteTileIndex.h"
 
-#include "Debug.h"
-
 /* ===== Functions ===== */
 
 /** Set the switch state and display the animation. */

@@ -34,3 +34,38 @@ void FlipGate(Gate* gate_ptr)
         SetGateState(gate_ptr, GATE_CLOSED);
     }
 }
+
+/** Activate any gates triggered by switches. */
+void CheckGateSwitches(
+    Gate* gates,
+    UINT8 num_gates,
+    Switch* switches)
+{
+    UINT8 gid;
+    UINT8 sid;
+    UINT8 gsid;
+    UINT8 triggered;
+    UINT8 num_gate_switches;
+
+    /** Loop over gates. */
+    for (gid = 0; gid < num_gates; ++gid) {
+
+        /** Loop over gate switches for this gate. */
+        num_gate_switches = gates[gid].num_switches;
+        triggered = 1;
+        for (gsid = 0; gsid < num_gate_switches; ++gsid) {
+            sid = gates[gid].switches[gsid].switch_index;
+            if (switches[sid].state != gates[gid].switches[gsid].trigger_state) {
+                triggered = 0;
+                break;
+            }
+        }
+
+        if (triggered && (GATE_CLOSED == gates[gid].state)) {
+            SetGateState(&gates[gid], GATE_OPEN);
+        }
+        else if (!triggered && (GATE_OPEN == gates[gid].state)) {
+            SetGateState(&gates[gid], GATE_CLOSED);
+        }
+    }
+}

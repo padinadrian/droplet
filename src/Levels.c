@@ -35,6 +35,9 @@ void InitializeLevel1(Level* level_ptr)
     /* Gates and Switches */
     static Switch switches[LEVEL1_NUM_SWITCHES];
     static Gate gates[LEVEL1_NUM_GATES];
+    static GateSwitch gateswitch1;
+    static GateSwitch gateswitch2;
+    static GateSwitch gateswitch3;
 
     SetLevelBackground(
         level_ptr,
@@ -84,8 +87,31 @@ void InitializeLevel1(Level* level_ptr)
     gates[5].pos.x = (15 << 3);
     gates[5].pos.y = (11 << 3);
 
-    level_ptr->switch_list = &switches;
-    level_ptr->gate_list = &gates;
+    level_ptr->switches = &switches;
+    level_ptr->gates = &gates;
+
+    gateswitch1.switch_index = 0;
+    gateswitch1.trigger_state = SWITCH_ON;
+    gateswitch2.switch_index = 1;
+    gateswitch2.trigger_state = SWITCH_ON;
+    gateswitch3.switch_index = 2;
+    gateswitch3.trigger_state = SWITCH_ON;
+
+    gates[0].switches = &gateswitch1;
+    gates[0].num_switches = 1;
+    gates[1].switches = &gateswitch1;
+    gates[1].num_switches = 1;
+
+    gates[2].switches = &gateswitch2;
+    gates[2].num_switches = 1;
+    gates[3].switches = &gateswitch2;
+    gates[3].num_switches = 1;
+
+    gates[4].switches = &gateswitch3;
+    gates[4].num_switches = 1;
+    gates[5].switches = &gateswitch3;
+    gates[5].num_switches = 1;
+
     level_ptr->num_switches = LEVEL1_NUM_SWITCHES;
     level_ptr->num_gates = LEVEL1_NUM_GATES;
 }
@@ -125,28 +151,28 @@ void LoadLevel(
 
     /* Initialize gates and switches. */
     for (i = 0; i < level_ptr->num_switches; ++i) {
-        level_ptr->switch_list[i].sprite = NewSpriteID();
+        level_ptr->switches[i].sprite = NewSpriteID();
         MoveSprite(
-            level_ptr->switch_list[i].sprite,
-            level_ptr->switch_list[i].pos.x,
-            level_ptr->switch_list[i].pos.y
+            level_ptr->switches[i].sprite,
+            level_ptr->switches[i].pos.x,
+            level_ptr->switches[i].pos.y
         );
         SetSwitchState(
-            &(level_ptr->switch_list[i]),
-            level_ptr->switch_list[i].state
+            &(level_ptr->switches[i]),
+            level_ptr->switches[i].state
         );
     }
 
     for (i = 0; i < level_ptr->num_gates; ++i) {
-        level_ptr->gate_list[i].sprite = NewSpriteID();
+        level_ptr->gates[i].sprite = NewSpriteID();
         MoveSprite(
-            level_ptr->gate_list[i].sprite,
-            level_ptr->gate_list[i].pos.x,
-            level_ptr->gate_list[i].pos.y
+            level_ptr->gates[i].sprite,
+            level_ptr->gates[i].pos.x,
+            level_ptr->gates[i].pos.y
         );
         SetGateState(
-            &(level_ptr->gate_list[i]),
-            level_ptr->gate_list[i].state
+            &(level_ptr->gates[i]),
+            level_ptr->gates[i].state
         );
     }
 
@@ -182,9 +208,14 @@ void PlayLevel(UINT8 level_number)
             if (!a_pressed) {
                 a_pressed = 1;
                 FlipNearbySwitches(
-                    level_ptr->switch_list,
+                    level_ptr->switches,
                     level_ptr->num_switches,
                     droplet_pos_ptr
+                );
+                CheckGateSwitches(
+                    level_ptr->gates,
+                    level_ptr->num_gates,
+                    level_ptr->switches
                 );
             }
         }
