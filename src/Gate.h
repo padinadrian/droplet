@@ -28,9 +28,9 @@ typedef struct {
 /** The gate sprite and state information. */
 typedef struct {
     Position pos;
-    GateSwitch* switches;
-    UINT8 num_switches;
     GateState state;
+    GateSwitch switches[1];
+    UINT8 num_switches;
     UINT8 sprite;
 } Gate;
 

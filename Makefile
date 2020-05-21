@@ -27,7 +27,7 @@ droplet.gb: $(OBJECTS)
 
 .PHONY: clean
 clean:
-	rm -f $(OBJECTS) droplet.gb
+	rm -f build/src/*.lst build/src/*.o build/bin/*
 
 .PHONY: play
 play: droplet.gb
