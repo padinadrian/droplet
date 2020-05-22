@@ -87,8 +87,8 @@ void InitializeLevel1(Level* level_ptr)
     gates[5].pos.x = (15 << 3);
     gates[5].pos.y = (11 << 3);
 
-    level_ptr->switches = &switches;
-    level_ptr->gates = &gates;
+    level_ptr->switches = switches;
+    level_ptr->gates = gates;
 
     gateswitch1.switch_index = 0;
     gateswitch1.trigger_state = SWITCH_ON;
@@ -203,7 +203,7 @@ void PlayLevel(UINT8 level_number)
         if (DropletCheckMovement(level_ptr, &droplet, joypad_input)) {
             MoveDroplet(&droplet, joypad_input);
         }
-        
+
         if (joypad_input & J_A) {
             if (!a_pressed) {
                 a_pressed = 1;
