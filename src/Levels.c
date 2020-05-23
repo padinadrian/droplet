@@ -22,8 +22,6 @@
 enum { NUM_LEVELS = 2 };
 static LevelFunction level_list[NUM_LEVELS];
 
-#include "Level1.h"
-
 /** LEVEL 2 **/
 /**
  * TODO: Move this to a proper data file instead of living
@@ -47,8 +45,8 @@ void InitializeLevel2(Level* level_ptr)
         DropletBackgroundLevel2Height
     );
 
-    level_ptr->droplet_start_pos.x = 1;
-    level_ptr->droplet_start_pos.y = 8;
+    level_ptr->start_pos.x = 1;
+    level_ptr->start_pos.y = 8;
     level_ptr->exit_pos.x = 17;
     level_ptr->exit_pos.y = 8;
 
@@ -100,7 +98,7 @@ void LoadLevel(
     SetBackground(&(level_ptr->level_map));
 
     ClearExistingSprites();
-    DropletInitialize(droplet_ptr, &level_ptr->droplet_start_pos);
+    DropletInitialize(droplet_ptr, &level_ptr->start_pos);
 
     /* Move Droplet to the starting position. */
     droplet_pixel_pos.x = droplet_ptr->pos.x;
@@ -121,6 +119,10 @@ void LoadLevel(
             level_ptr->switches[i].pos.x,
             level_ptr->switches[i].pos.y
         );
+        SetSwitchState(
+            &(level_ptr->switches[i]),
+            level_ptr->switches[i].state
+        );
     }
 
     for (i = 0; i < level_ptr->num_gates; ++i) {
@@ -129,6 +131,10 @@ void LoadLevel(
             level_ptr->gates[i].sprite,
             level_ptr->gates[i].pos.x,
             level_ptr->gates[i].pos.y
+        );
+        SetGateState(
+            &(level_ptr->gates[i]),
+            level_ptr->gates[i].state
         );
     }
 

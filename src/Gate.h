@@ -29,7 +29,7 @@ typedef struct {
 typedef struct {
     Position pos;
     GateState state;
-    GateSwitch switches[1];
+    GateSwitch* switches;
     UINT8 num_switches;
     UINT8 sprite;
 } Gate;

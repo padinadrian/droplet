@@ -13,8 +13,8 @@
 /* ===== Data Types ===== */
 
 typedef enum {
-    SWITCH_ON,
-    SWITCH_OFF
+    SWITCH_OFF,
+    SWITCH_ON
 } SwitchState;
 
 typedef struct {

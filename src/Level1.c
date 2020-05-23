@@ -22,13 +22,7 @@ static enum { LEVEL1_NUM_GATES = 6 };
 static enum { LEVEL1_NUM_SWITCHES = 3 };
 void InitializeLevel1(Level* level_ptr)
 {
-    /* Gates and Switches */
-    /*
-    const Gate gates[LEVEL1_NUM_GATES];
-    const Switch switches[LEVEL1_NUM_SWITCHES];
-    const GateSwitch gate_switches[LEVEL1_NUM_GATE_SWITCHES];
-    */
-
+    /* Background */
     SetLevelBackground(
         level_ptr,
         DropletBackgroundLevel1,
@@ -37,8 +31,8 @@ void InitializeLevel1(Level* level_ptr)
     );
 
     /* Start and Exit Positions */
-    level_ptr->droplet_start_pos.x = 1;
-    level_ptr->droplet_start_pos.y = 10;
+    level_ptr->start_pos.x = 1;
+    level_ptr->start_pos.y = 10;
     level_ptr->exit_pos.x = 17;
     level_ptr->exit_pos.y = 10;
 
@@ -105,7 +99,7 @@ void InitializeLevel1(Level* level_ptr)
     level_ptr->gates[4].switches[0].switch_index = 2;
     level_ptr->gates[4].switches[0].trigger_state = SWITCH_ON;
 
-    level_ptr->gates[4].num_switches = 1;
-    level_ptr->gates[4].switches[0].switch_index = 2;
-    level_ptr->gates[4].switches[0].trigger_state = SWITCH_ON;
+    level_ptr->gates[5].num_switches = 1;
+    level_ptr->gates[5].switches[0].switch_index = 2;
+    level_ptr->gates[5].switches[0].trigger_state = SWITCH_ON;
 }
