@@ -10,6 +10,9 @@
 #include <gb/gb.h>
 #include "Level.h"
 
+/* ===== Data Types ===== */
+typedef void (*LevelFunction)(Level*);
+
 /* ===== Functions ===== */
 
 /** Initialize all levels. */
