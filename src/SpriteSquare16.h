@@ -26,8 +26,7 @@ typedef struct {
  */
 void SetSpriteTileSquare16(
     SpriteSquare16* sprite_ptr,
-    UINT8 top_left_tile
-);
+    UINT8 top_left_tile);
 
 /**
  * Move a 16x16 sprite all at once.
@@ -35,17 +34,15 @@ void SetSpriteTileSquare16(
 void MoveSpriteSquare16(
     SpriteSquare16* sprite_ptr,
     UINT8 x_pos,
-    UINT8 y_pos
-);
+    UINT8 y_pos);
 
 /**
  * Scroll a 16x16 sprite all at once.
  */
 void ScrollSpriteSquare16(
     SpriteSquare16* sprite_ptr,
-    UINT8 x_scroll,
-    UINT8 y_scroll
-);
+    INT8 x_scroll,
+    INT8 y_scroll);
 
 
 #endif  /* DROPLET_SPRITE_SQUARE_16_H */

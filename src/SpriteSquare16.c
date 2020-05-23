@@ -44,8 +44,8 @@ void MoveSpriteSquare16(
  */
 void ScrollSpriteSquare16(
         SpriteSquare16* sprite,
-        UINT8 x_scroll,
-        UINT8 y_scroll)
+        INT8 x_scroll,
+        INT8 y_scroll)
 {
     /* set_sprite_tile(<sprite_id>, <sprite_data_index>); */
     scroll_sprite(sprite->top_left,     x_scroll, y_scroll);
