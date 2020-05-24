@@ -14,6 +14,6 @@
  */
 void LevelMenu()
 {
-    UINT8 level_number = 1;
+    UINT8 level_number = 2;
     PlayLevel(level_number);
 }

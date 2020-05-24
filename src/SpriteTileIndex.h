@@ -8,6 +8,14 @@
 
 /* ===== Data Types ===== */
 
+/* Direction that the sprite is facing. */
+typedef enum {
+    SPRITE_DIR_UP    = 0,
+    SPRITE_DIR_RIGHT = 1,
+    SPRITE_DIR_DOWN  = 2,
+    SPRITE_DIR_LEFT  = 3,
+} SpriteDirection;
+
 /* Reference for sprite tile indices. */
 typedef enum {
 
@@ -40,8 +48,19 @@ typedef enum {
 
     SPRITE_RAIN = 24,
     SPRITE_GATE = 25,
-    SPRITE_SWITCH_OFF = 26,
-    SPRITE_SWITCH_ON = 27,
+
+    /* Switches in various positions */
+    SPRITE_SWITCH_DOWN_OFF = 26,
+    SPRITE_SWITCH_DOWN_ON = 27,
+
+    SPRITE_SWITCH_LEFT_OFF = 28,
+    SPRITE_SWITCH_LEFT_ON = 29,
+
+    SPRITE_SWITCH_UP_OFF = 30,
+    SPRITE_SWITCH_UP_ON = 31,
+
+    SPRITE_SWITCH_RIGHT_OFF = 32,
+    SPRITE_SWITCH_RIGHT_ON = 33,
 
     /* The total number of sprites. */
     SPRITE_TILE_COUNT

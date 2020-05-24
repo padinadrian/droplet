@@ -44,7 +44,7 @@ int main()
         LevelMenu();
 
         /* TODO: Remove later. */
-        printf("Done");
+        printf("Done\n");
         delay(5000);
     }
 

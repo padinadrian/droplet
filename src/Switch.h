@@ -9,17 +9,19 @@
 /* ===== Includes ===== */
 #include <gb/gb.h>
 #include "Position.h"
+#include "SpriteTileIndex.h"
 
 /* ===== Data Types ===== */
 
 typedef enum {
-    SWITCH_ON,
-    SWITCH_OFF
+    SWITCH_OFF = 0,
+    SWITCH_ON  = 4,
 } SwitchState;
 
 typedef struct {
     Position pos;
     SwitchState state;
+    SpriteDirection direction;
     UINT8 sprite;
 } Switch;
 

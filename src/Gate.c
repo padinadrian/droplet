@@ -45,6 +45,7 @@ void CheckGateSwitches(
     UINT8 sid;
     UINT8 gsid;
     UINT8 triggered;
+    UINT8 trigger_state;
     UINT8 num_gate_switches;
 
     /** Loop over gates. */
@@ -52,13 +53,19 @@ void CheckGateSwitches(
 
         /** Loop over gate switches for this gate. */
         num_gate_switches = gates[gid].num_switches;
-        triggered = 1;
-        for (gsid = 0; gsid < num_gate_switches; ++gsid) {
-            sid = gates[gid].switches[gsid].switch_index;
-            if (switches[sid].state != gates[gid].switches[gsid].trigger_state) {
-                triggered = 0;
-                break;
+        if (num_gate_switches > 0) {
+            triggered = 1;
+            for (gsid = 0; gsid < num_gate_switches; ++gsid) {
+                sid = gates[gid].switches[gsid].switch_index;
+                trigger_state = gates[gid].switches[gsid].trigger_state;
+                if (switches[sid].state != trigger_state) {
+                    triggered = 0;
+                    break;
+                }
             }
+        }
+        else {
+            triggered = 0;
         }
 
         if (triggered && (GATE_CLOSED == gates[gid].state)) {

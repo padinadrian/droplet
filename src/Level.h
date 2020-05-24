@@ -18,7 +18,7 @@
 
 typedef struct {
     BackgroundMap level_map;
-    Position droplet_start_pos;
+    Position start_pos;
     Position exit_pos;
     Switch* switches;
     Gate* gates;

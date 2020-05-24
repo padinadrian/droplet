@@ -13,14 +13,10 @@
 /** Set the switch state and display the animation. */
 void SetSwitchState(Switch* switch_ptr, SwitchState state)
 {
-    UINT8 sprite_tile;
-    if (SWITCH_ON == state) {
-        sprite_tile = SPRITE_SWITCH_ON;
-    }
-    else {
-        sprite_tile = SPRITE_SWITCH_OFF;
-    }
-    set_sprite_tile(switch_ptr->sprite, sprite_tile);
+    set_sprite_tile(
+        switch_ptr->sprite,
+        SPRITE_SWITCH_DOWN_OFF + switch_ptr->direction + state
+    );
     switch_ptr->state = state;
 }
 
@@ -47,6 +43,10 @@ void FlipNearbySwitches(
 
     PositionCopy(&droplet_pos_copy, droplet_pos);
     GridPosToPixelPos(&droplet_pos_copy);
+
+    /* Measure from the (approximate) middle of the sprite. */
+    droplet_pos_copy.x += 8;
+    droplet_pos_copy.y += 8;
 
     /* TODO: Flip any switches within 8 pixels. */
     for (i = 0; i < num_switches; ++i) {

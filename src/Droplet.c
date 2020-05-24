@@ -4,7 +4,6 @@
  */
 
 /* ===== Includes ===== */
-#include <stdio.h>
 #include <gb/gb.h>
 #include "Debug.h"
 #include "Droplet.h"

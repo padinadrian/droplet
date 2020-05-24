@@ -30,7 +30,7 @@ UINT8 PositionProximityCheck(const Position* pos1, const Position* pos2)
     UINT8 y2 = pos2->y;
     UINT8 x_diff = (x1 > x2) ? x1 - x2 : x2 - x1;
     UINT8 y_diff = (y1 > y2) ? y1 - y2 : y2 - y1;
-    return (y_diff < 8 && x_diff < 8);
+    return (y_diff < 9 && x_diff < 9);
 }
 
 /**

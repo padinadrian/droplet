@@ -11,18 +11,16 @@
 #include "data/maps/droplet_level1_bg.h"
 
 /* ===== Functions ===== */
-void InitializeLevel1(Level* level_ptr);
 
-/** LEVEL 1 **/
 /**
  * TODO: Move this to a proper data file instead of living
  * in a source file.
  */
-enum { LEVEL1_NUM_SWITCHES = 3 };
-enum { LEVEL1_NUM_GATES = 6 };
+static enum { LEVEL1_NUM_SWITCHES = 3 };
+static enum { LEVEL1_NUM_GATES = 6 };
 void InitializeLevel1(Level* level_ptr)
 {
-    /* Gates and Switches */
+    /* Static Data */
     static Switch switches[LEVEL1_NUM_SWITCHES];
     static Gate gates[LEVEL1_NUM_GATES];
     static GateSwitch gateswitch1;
@@ -36,23 +34,29 @@ void InitializeLevel1(Level* level_ptr)
         DropletBackgroundLevel1Height
     );
 
-    level_ptr->droplet_start_pos.x = 1;
-    level_ptr->droplet_start_pos.y = 10;
+    /* Start and End Positions */
+    level_ptr->start_pos.x = 1;
+    level_ptr->start_pos.y = 10;
     level_ptr->exit_pos.x = 17;
     level_ptr->exit_pos.y = 10;
 
+    /* Switches */
     switches[0].state = SWITCH_OFF;
+    switches[0].direction = SPRITE_DIR_UP;
     switches[0].pos.x = (5 << 3) + 4;
     switches[0].pos.y = (5 << 3);
 
     switches[1].state = SWITCH_OFF;
+    switches[1].direction = SPRITE_DIR_UP;
     switches[1].pos.x = (9 << 3) + 4;
     switches[1].pos.y = (5 << 3);
 
     switches[2].state = SWITCH_OFF;
+    switches[2].direction = SPRITE_DIR_UP;
     switches[2].pos.x = (13 << 3) + 4;
     switches[2].pos.y = (5 << 3);
 
+    /* Gates */
     gates[0].state = GATE_CLOSED;
     gates[0].pos.x = (9 << 3);
     gates[0].pos.y = (9 << 3);

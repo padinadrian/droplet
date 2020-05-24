@@ -23,6 +23,7 @@ static Level global_level;
 
 /* ===== LEVELS ===== */
 void InitializeLevel1(Level* level_ptr);
+void InitializeLevel2(Level* level_ptr);
 
 /* ===== Functions ===== */
 
@@ -30,6 +31,7 @@ void InitializeLevel1(Level* level_ptr);
 void InitializeLevels()
 {
     level_functions[1] = InitializeLevel1;
+    level_functions[2] = InitializeLevel2;
 }
 
 /** Load the level. */
@@ -44,7 +46,7 @@ void LoadLevel(
     SetBackground(&(level_ptr->level_map));
 
     ClearExistingSprites();
-    DropletInitialize(droplet_ptr, &level_ptr->droplet_start_pos);
+    DropletInitialize(droplet_ptr, &level_ptr->start_pos);
 
     /* Move Droplet to the starting position. */
     droplet_pixel_pos.x = droplet_ptr->pos.x;
