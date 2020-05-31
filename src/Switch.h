@@ -15,7 +15,7 @@
 
 typedef enum {
     SWITCH_OFF = 0,
-    SWITCH_ON  = 4,
+    SWITCH_ON  = 4
 } SwitchState;
 
 typedef struct {

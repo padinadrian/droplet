@@ -13,7 +13,7 @@ typedef enum {
     SPRITE_DIR_UP    = 0,
     SPRITE_DIR_RIGHT = 1,
     SPRITE_DIR_DOWN  = 2,
-    SPRITE_DIR_LEFT  = 3,
+    SPRITE_DIR_LEFT  = 3
 } SpriteDirection;
 
 /* Reference for sprite tile indices. */
@@ -52,15 +52,20 @@ typedef enum {
     /* Switches in various positions */
     SPRITE_SWITCH_DOWN_OFF = 26,
     SPRITE_SWITCH_DOWN_ON = 27,
-
     SPRITE_SWITCH_LEFT_OFF = 28,
     SPRITE_SWITCH_LEFT_ON = 29,
-
     SPRITE_SWITCH_UP_OFF = 30,
     SPRITE_SWITCH_UP_ON = 31,
-
     SPRITE_SWITCH_RIGHT_OFF = 32,
     SPRITE_SWITCH_RIGHT_ON = 33,
+
+    /* Level Selector */
+    SPRITE_LEVEL_SELECTOR_0 = 34,
+    SPRITE_LEVEL_SELECTOR_1 = 35,
+    SPRITE_LEVEL_SELECTOR_2 = 36,
+    SPRITE_LEVEL_SELECTOR_3 = 37,
+    SPRITE_LEVEL_SELECTOR_4 = 38,
+    SPRITE_LEVEL_SELECTOR_5 = 39,
 
     /* The total number of sprites. */
     SPRITE_TILE_COUNT

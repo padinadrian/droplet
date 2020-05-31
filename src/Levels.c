@@ -17,7 +17,7 @@
 
 /* ===== Data ===== */
 
-enum { NUM_LEVELS = 2 };
+enum { NUM_LEVELS = 3 };
 static LevelFunction level_functions[NUM_LEVELS];
 static Level global_level;
 
@@ -30,8 +30,8 @@ void InitializeLevel2(Level* level_ptr);
 /** Initialize all levels. */
 void InitializeLevels()
 {
-    level_functions[1] = InitializeLevel1;
-    level_functions[2] = InitializeLevel2;
+   level_functions[1] = InitializeLevel1;
+   level_functions[2] = InitializeLevel2;
 }
 
 /** Load the level. */

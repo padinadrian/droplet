@@ -11,6 +11,7 @@
         "droplet_background_tiles.h": "c",
         "spritesquare16.h": "c",
         "droplet.h": "c",
-        "gate.h": "c"
+        "gate.h": "c",
+        "droplet_level_menu_bg.h": "c"
     }
 }

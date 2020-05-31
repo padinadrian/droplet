@@ -5,7 +5,7 @@
  Map Source File.
 
  Info:
-   Section       : 
+   Section       :
    Bank          : 0
    Map size      : 20 x 18
    Tile set      : C:\Users\apadi\Documents\projects\gameboy\droplet\data\tiles\droplet_splash_tiles.gbr
@@ -22,7 +22,7 @@
 #define DropletSplashBackgroundHeight 18
 #define DropletSplashBackgroundBank 0
 
-unsigned char DropletSplashBackground[] =
+const unsigned char DropletSplashBackground[] =
 {
   0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
   0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,

@@ -25,7 +25,7 @@ typedef enum {
     BG_TILE_STAIRCASE_BR,
 
     /* The total number of sprites. */
-    BG_TILE_COUNT = 24
+    BG_TILE_COUNT = 29
 
 } BackgroundTileIndex;
 

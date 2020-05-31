@@ -61,8 +61,8 @@ static inline void move_sprite(
 /* Move the sprite by a relative amount. */
 static inline void scroll_sprite(
     UINT8 sprite_index,
-    UINT8 x_delta,
-    UINT8 y_delta)
+    INT8 x_delta,
+    INT8 y_delta)
 {
     // Nothing
 }

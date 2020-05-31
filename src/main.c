@@ -34,6 +34,7 @@ int main()
     {
         /* Display splash screen. */
         /* "PRESS START" */
+        SWITCH_ROM_MBC1(1);
         Splash();
 
         /* Save file select. */
@@ -41,6 +42,7 @@ int main()
         /* Load save file. */
 
         /* Level select. */
+        SWITCH_ROM_MBC1(2);
         LevelMenu();
 
         /* TODO: Remove later. */
