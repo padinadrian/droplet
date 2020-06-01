@@ -11,7 +11,7 @@
 #include "LevelSelector.h"
 #include "SpriteTileIndex.h"
 #include "BackgroundTileIndex.h"
-#include "data/tiles/droplet_background_tiles.h"
+#include "data/tiles/droplet_level_menu_tiles.h"
 #include "data/maps/droplet_level_menu_bg.h"
 
 /* ===== Functions ===== */
@@ -36,7 +36,7 @@ void LevelMenu()
     HIDE_BKG;
     HIDE_SPRITES;
 
-    set_bkg_data(0, BG_TILE_COUNT, DropletBkgTiles);
+    set_bkg_data(0, 58, DropletMenuTiles);
     set_bkg_tiles(
         0,
         0,

@@ -35,6 +35,7 @@ SOURCES_BANK1 = \
 SOURCES_BANK2 = \
 	src/LevelMenu.c \
 	src/LevelSelector.c \
+	data/tiles/droplet_level_menu_tiles.c \
 	data/maps/droplet_level_menu_bg.c
 
 SOURCES_BANK3 = \

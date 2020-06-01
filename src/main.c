@@ -20,7 +20,7 @@
 
 int main()
 {
-    /* Display static Loading screen. */
+    /* Display static loading screen. */
 
     /* Initialize tile data. */
     set_sprite_data(0, SPRITE_TILE_COUNT, DropletSprites);
