@@ -8,6 +8,7 @@
 #include "LevelMenu.h"
 #include "Levels.h"
 #include "Sprites.h"
+#include "Utility.h"
 #include "LevelSelector.h"
 #include "SpriteTileIndex.h"
 #include "BackgroundTileIndex.h"
@@ -15,15 +16,6 @@
 #include "data/maps/droplet_level_menu_bg.h"
 
 /* ===== Functions ===== */
-
-
-static UINT8 JoypadChanges(UINT8 input)
-{
-    static UINT8 state = 0;
-    UINT8 changes = input & ~state;
-    state = input;
-    return changes;
-}
 
 /**
  * Display level-picking menu.

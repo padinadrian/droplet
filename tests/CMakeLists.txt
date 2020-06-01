@@ -3,13 +3,16 @@
 # List unit test source files
 add_executable(${PROJECT_NAME}_tests
     # Tests
+    # Droplet_tests.cpp
+    Utility_tests.cpp
     Position_tests.cpp
-    DropletMap_tests.cpp
-    Droplet_tests.cpp
+    BackgroundMap_tests.cpp
 
     # Sources
-    ../src/Position.c
+    ../src/Sprites.c
+    ../src/Utility.c
     ../src/Droplet.c
+    ../src/Position.c
     ../src/BackgroundMap.c
     ../src/SpriteSquare16.c
 )

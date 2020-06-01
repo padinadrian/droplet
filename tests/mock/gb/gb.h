@@ -20,14 +20,20 @@ unit tests to build.
 
 /* ===== Data Types ===== */
 
+typedef int8_t INT8;
 typedef uint8_t UINT8;
+typedef int16_t INT16;
 typedef uint16_t UINT16;
 
 typedef enum {
-    J_LEFT,
-    J_RIGHT,
-    J_UP,
-    J_DOWN,
+    J_LEFT    = 0x01,
+    J_RIGHT   = 0x02,
+    J_UP      = 0x04,
+    J_DOWN    = 0x08,
+    J_A       = 0x10,
+    J_B       = 0x20,
+    J_START   = 0x40,
+    J_SELECT  = 0x80,
 } MOCK_JOYPAD_DIRECTION;
 
 /* ===== Functions ===== */
@@ -36,7 +42,7 @@ typedef enum {
 static inline void set_sprite_data(
     UINT8 first_tile_index,
     UINT8 number_of_tiles,
-    UINT8 tile_data[])
+    UINT8 *tile_data)
 {
     // Nothing
 }
@@ -63,6 +69,26 @@ static inline void scroll_sprite(
     UINT8 sprite_index,
     INT8 x_delta,
     INT8 y_delta)
+{
+    // Nothing
+}
+
+/* Initialize the background tile data in memory. */
+static inline void set_bkg_data(
+    UINT8 first_tile_index,
+    UINT8 num_tiles,
+    UINT8* tile_data)
+{
+    // Nothing
+}
+
+/* Display a background image. */
+static inline void set_bkg_tiles(
+    UINT8 x_start,
+    UINT8 y_start,
+    UINT8 width,
+    UINT8 height,
+    UINT8* map_data)
 {
     // Nothing
 }

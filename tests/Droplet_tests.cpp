@@ -7,6 +7,7 @@
 #include <gtest/gtest.h>
 extern "C" {
     #include "Droplet.h"
+    #include "BackgroundMap.h"
     #include "data/maps/droplet_level1_bg.c"
 }
 

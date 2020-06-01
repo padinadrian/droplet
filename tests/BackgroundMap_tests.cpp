@@ -14,12 +14,18 @@ extern "C" {
 TEST(Position, TileIsWall1)
 {
     BackgroundMap map;
+    Position p;
     unsigned char map_data[4] = {0, 0x10, 0x10, 0};
     map.map_data = +map_data;
     map.width = 2;
     map.height = 2;
-    EXPECT_EQ(TileIsWall(&map, 0, 0), 0);
-    EXPECT_EQ(TileIsWall(&map, 1, 0), 1);
-    EXPECT_EQ(TileIsWall(&map, 0, 1), 1);
-    EXPECT_EQ(TileIsWall(&map, 1, 1), 0);
+    p.x = 0;
+    p.y = 0;
+    EXPECT_EQ(TileIsWall(&map, &p), 0);
+    p.x = 1;
+    EXPECT_EQ(TileIsWall(&map, &p), 1);
+    p.y = 1;
+    EXPECT_EQ(TileIsWall(&map, &p), 0);
+    p.x = 0;
+    EXPECT_EQ(TileIsWall(&map, &p), 1);
 }

@@ -23,6 +23,7 @@ SOURCES_BANK0 = \
 	src/Sprites.c \
 	src/SpriteSquare16.c \
 	src/Switch.c \
+	src/Utility.c \
 	data/tiles/droplet_background_tiles.c \
 	data/tiles/droplet_sprites.c
 
