@@ -16,38 +16,53 @@
 #include "Levels.h"
 #include "Splash.h"
 
+#include "Debug.h"
+
 /* ===== MAIN ===== */
 
 int main()
 {
+    /* Local variables. */
+    UINT8 level_number = 0;
+
     /* Display static loading screen. */
 
-    /* Initialize tile data. */
+    /* Initialize sprite tile data. */
     set_sprite_data(0, SPRITE_TILE_COUNT, DropletSprites);
-    set_bkg_data(0, BG_TILE_COUNT, DropletBkgTiles);
+
+    /* Display splash screen. */
+    /* "PRESS START" */
+    Splash();
 
     /* Initialize internal data. */
     InitializeSpriteCounter();
     InitializeLevels();
 
-    while (1)
-    {
-        /* Display splash screen. */
-        /* "PRESS START" */
-        SWITCH_ROM_MBC1(1);
-        Splash();
+    while (1) {
 
-        /* Save file select. */
+        /* TODO: Save file select. */
 
-        /* Load save file. */
+        /* TODO: Load save file. */
 
         /* Level select. */
         SWITCH_ROM_MBC1(2);
-        LevelMenu();
+        level_number = LevelMenu();
+
+        SWITCH_ROM_MBC1(1);
+        PrintHex16("level_number", level_number);
+        if (level_number > 0 && level_number < 3) {
+            PlayLevel(level_number);
+        }
+        else {
+            SWITCH_ROM_MBC1(1);
+            printf("bad level number!\n");
+        }
 
         /* TODO: Remove later. */
-        printf("Done\n");
-        delay(5000);
+        printf("Press start...\n");
+        waitpad(J_START);
+
+        /* delay(5000); */
     }
 
     return 0;

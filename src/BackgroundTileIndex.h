@@ -8,24 +8,21 @@
 
 /* ===== Data Types ===== */
 
-/* Reference for sprite tile indices. */
+/* Background-related constants */
+enum { NUM_SPLASH_TILES = 86 };
+enum { NUM_LEVEL_MENU_TILES = 58 };
+enum { NUM_BACKGROUND_TILES = 29 };
+enum { BACKGROUND_TILE_START = 0x80 };
+
+/* Reference for background tile indices. */
 typedef enum {
-    BG_TILE_NULL = 0,
+    BG_TILE_NULL = 0 + BACKGROUND_TILE_START,
 
-    /* Droplet, 16x16, normal, facing right  */
-    BG_TILE_EXTERIOR_WALL_TL = 4,
-    BG_TILE_EXTERIOR_WALL_TR,
-    BG_TILE_EXTERIOR_WALL_BL,
-    BG_TILE_EXTERIOR_WALL_BR,
-
-    /* Droplet, 16x16, normal, facing right  */
-    BG_TILE_STAIRCASE_TL = 20,
+    /* Tile for staircase image.  */
+    BG_TILE_STAIRCASE_TL = 17 + BACKGROUND_TILE_START,
     BG_TILE_STAIRCASE_BL,
     BG_TILE_STAIRCASE_TR,
-    BG_TILE_STAIRCASE_BR,
-
-    /* The total number of sprites. */
-    BG_TILE_COUNT = 29
+    BG_TILE_STAIRCASE_BR
 
 } BackgroundTileIndex;
 

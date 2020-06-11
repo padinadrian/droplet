@@ -23,15 +23,16 @@ SOURCES_BANK0 = \
 	src/Sprites.c \
 	src/SpriteSquare16.c \
 	src/Switch.c \
-	src/Utility.c \
-	data/tiles/droplet_background_tiles.c \
-	data/tiles/droplet_sprites.c
+	src/Utility.c
+
 
 # Bank 1+ sources must be swapped in when needed.
 SOURCES_BANK1 = \
 	src/Splash.c \
 	data/maps/droplet_splash_bg.c \
-	data/tiles/droplet_splash_tiles.c
+	data/tiles/droplet_splash_tiles.c \
+	data/tiles/droplet_background_tiles.c \
+	data/tiles/droplet_sprites.c
 
 SOURCES_BANK2 = \
 	src/LevelMenu.c \

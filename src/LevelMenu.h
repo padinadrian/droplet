@@ -12,7 +12,8 @@
 
 /**
  * Enter the menu to select which level to play.
+ * Returns the level number to be played.
  */
-void LevelMenu();
+UINT8 LevelMenu();
 
 #endif  /* DROPLET_LEVEL_MENU_H */

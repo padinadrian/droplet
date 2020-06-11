@@ -45,7 +45,7 @@ int DropletCheckMovement(
     Position next_px_pos1;
     Position next_px_pos2;
     BackgroundMap* map_ptr;
-    
+
     map_ptr = &(level_ptr->level_map);
 
     PositionCopy(&next_pos1, &(droplet_ptr->pos));

@@ -20,13 +20,11 @@ static enum { LEVEL1_NUM_SWITCHES = 3 };
 static enum { LEVEL1_NUM_GATES = 6 };
 void InitializeLevel1(Level* level_ptr)
 {
-    /* Static Data */
-    static Switch switches[LEVEL1_NUM_SWITCHES];
-    static Gate gates[LEVEL1_NUM_GATES];
-    static GateSwitch gateswitch1;
-    static GateSwitch gateswitch2;
-    static GateSwitch gateswitch3;
+    const Switch* switches = &level_ptr->switches;
+    const Gate* gates = &level_ptr->gates;
+    const GateSwitch* gateswitches = &level_ptr->gateswitches;
 
+    /* Background */
     SetLevelBackground(
         level_ptr,
         DropletBackgroundLevel1,
@@ -42,17 +40,17 @@ void InitializeLevel1(Level* level_ptr)
 
     /* Switches */
     switches[0].state = SWITCH_OFF;
-    switches[0].direction = SPRITE_DIR_UP;
+    switches[0].direction = SPRITE_DIR_DOWN;
     switches[0].pos.x = (5 << 3) + 4;
     switches[0].pos.y = (5 << 3);
 
     switches[1].state = SWITCH_OFF;
-    switches[1].direction = SPRITE_DIR_UP;
+    switches[1].direction = SPRITE_DIR_DOWN;
     switches[1].pos.x = (9 << 3) + 4;
     switches[1].pos.y = (5 << 3);
 
     switches[2].state = SWITCH_OFF;
-    switches[2].direction = SPRITE_DIR_UP;
+    switches[2].direction = SPRITE_DIR_DOWN;
     switches[2].pos.x = (13 << 3) + 4;
     switches[2].pos.y = (5 << 3);
 
@@ -81,29 +79,27 @@ void InitializeLevel1(Level* level_ptr)
     gates[5].pos.x = (15 << 3);
     gates[5].pos.y = (11 << 3);
 
-    level_ptr->switches = switches;
-    level_ptr->gates = gates;
+    /* Gate Switches */
+    gateswitches[0].switch_index = 0;
+    gateswitches[0].trigger_state = SWITCH_ON;
+    gateswitches[1].switch_index = 1;
+    gateswitches[1].trigger_state = SWITCH_ON;
+    gateswitches[2].switch_index = 2;
+    gateswitches[2].trigger_state = SWITCH_ON;
 
-    gateswitch1.switch_index = 0;
-    gateswitch1.trigger_state = SWITCH_ON;
-    gateswitch2.switch_index = 1;
-    gateswitch2.trigger_state = SWITCH_ON;
-    gateswitch3.switch_index = 2;
-    gateswitch3.trigger_state = SWITCH_ON;
-
-    gates[0].switches = &gateswitch1;
+    gates[0].switches = &gateswitches[0];
     gates[0].num_switches = 1;
-    gates[1].switches = &gateswitch1;
+    gates[1].switches = &gateswitches[0];
     gates[1].num_switches = 1;
 
-    gates[2].switches = &gateswitch2;
+    gates[2].switches = &gateswitches[1];
     gates[2].num_switches = 1;
-    gates[3].switches = &gateswitch2;
+    gates[3].switches = &gateswitches[1];
     gates[3].num_switches = 1;
 
-    gates[4].switches = &gateswitch3;
+    gates[4].switches = &gateswitches[2];
     gates[4].num_switches = 1;
-    gates[5].switches = &gateswitch3;
+    gates[5].switches = &gateswitches[2];
     gates[5].num_switches = 1;
 
     level_ptr->num_switches = LEVEL1_NUM_SWITCHES;

@@ -42,7 +42,10 @@ void LoadLevel(
     UINT8 i;
     Position droplet_pixel_pos;
 
-    set_bkg_data(0, BG_TILE_COUNT, DropletBkgTiles);
+    SWITCH_ROM_MBC1(1);
+    set_bkg_data(BACKGROUND_TILE_START, NUM_BACKGROUND_TILES, DropletBkgTiles);
+
+    SWITCH_ROM_MBC1(3);
     SetBackground(&(level_ptr->level_map));
 
     ClearExistingSprites();
@@ -99,6 +102,8 @@ void PlayLevel(UINT8 level_number)
     Position* droplet_pos_ptr = &(droplet.pos);
     Level* level_ptr = &global_level;
 
+    /* TODO: Mapping from level number to ROM bank number. */
+    SWITCH_ROM_MBC1(3);
     level_functions[level_number](level_ptr);
     LoadLevel(level_ptr, &droplet);
 

@@ -44,7 +44,7 @@ int demo()
 
     /* Load sprite data */
     set_sprite_data(0, SPRITE_TILE_COUNT, DropletSprites);
-    set_bkg_data(0, BG_TILE_COUNT, DropletBkgTiles);
+    set_bkg_data(BACKGROUND_TILE_START, NUM_BACKGROUND_TILES, DropletBkgTiles);
     set_bkg_tiles(
         0,
         0,

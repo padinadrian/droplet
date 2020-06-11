@@ -10,8 +10,6 @@
 #include "Sprites.h"
 #include "SpriteTileIndex.h"
 
-#include "Debug.h"
-
 /* ===== Functions ===== */
 
 /** Display the selector at the starting position. */
@@ -93,6 +91,7 @@ void MoveSelector(LevelSelector* selector_ptr, UINT8 direction)
  */
 UINT8 SelectLevel(LevelSelector* selector_ptr)
 {
-    (void)selector_ptr;
-    return 1;
+    const UINT8 x = selector_ptr->pos.x;
+    const UINT8 y = selector_ptr->pos.y;
+    return (y * 6) + x + 1;
 }

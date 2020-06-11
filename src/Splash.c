@@ -10,6 +10,7 @@
 #include "data/tiles/droplet_sprites.h"
 #include "src/SpriteTileIndex.h"
 #include "src/BackgroundMap.h"
+#include "src/BackgroundTileIndex.h"
 
 /* ===== Functions ===== */
 
@@ -26,7 +27,7 @@ void Splash()
     splash_bkg.map_data = DropletSplashBackground;
 
     /* Initialize background */
-    set_bkg_data(0, 86, DropletSplashTiles);
+    set_bkg_data(BACKGROUND_TILE_START, NUM_SPLASH_TILES, DropletSplashTiles);
     SetBackground(&splash_bkg);
 
     /* Initialize sprites */

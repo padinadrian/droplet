@@ -20,15 +20,20 @@
 /**
  * Display level-picking menu.
  */
-void LevelMenu()
+UINT8 LevelMenu()
 {
     static LevelSelector selector;
     UINT8 joypad_input = 0;
+    UINT8 level_number = 0;
 
     HIDE_BKG;
     HIDE_SPRITES;
 
-    set_bkg_data(0, 58, DropletMenuTiles);
+    set_bkg_data(
+        BACKGROUND_TILE_START,
+        NUM_LEVEL_MENU_TILES,
+        DropletMenuTiles
+    );
     set_bkg_tiles(
         0,
         0,
@@ -39,18 +44,27 @@ void LevelMenu()
 
     ClearExistingSprites();
     InitializeSelector(&selector);
-    // UINT8 level_number = 2;
-    // PlayLevel(level_number);
 
     SHOW_BKG;
     SHOW_SPRITES;
 
-    while (1) {
-        /* TODO: Select level */
+    waitpadup();
+
+    while (0 == level_number) {
+        /* Poll the joypad for input changes. */
         joypad_input = JoypadChanges(joypad());
-        if (joypad_input > 0) {
+        if (joypad_input) {
+
+            /* Move the selector icon. */
             MoveSelector(&selector, joypad_input);
+
+            /* Select a level. */
+            if (joypad_input & (J_A | J_START)) {
+                level_number = SelectLevel(&selector);
+            }
         }
         delay(50);
     }
+
+    return level_number;
 }

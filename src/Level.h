@@ -20,8 +20,9 @@ typedef struct {
     BackgroundMap level_map;
     Position start_pos;
     Position exit_pos;
-    Switch* switches;
-    Gate* gates;
+    Switch switches[10];
+    Gate gates[10];
+    GateSwitch gateswitches[10];
     UINT8 num_switches;
     UINT8 num_gates;
 } Level;
