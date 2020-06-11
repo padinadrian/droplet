@@ -16,8 +16,6 @@
 #include "Levels.h"
 #include "Splash.h"
 
-#include "Debug.h"
-
 /* ===== MAIN ===== */
 
 int main()
@@ -26,9 +24,7 @@ int main()
     UINT8 level_number = 0;
 
     /* Display static loading screen. */
-
-    /* Initialize sprite tile data. */
-    set_sprite_data(0, SPRITE_TILE_COUNT, DropletSprites);
+    /* "Nintendo(c)" */
 
     /* Display splash screen. */
     /* "PRESS START" */
@@ -37,6 +33,9 @@ int main()
     /* Initialize internal data. */
     InitializeSpriteCounter();
     InitializeLevels();
+
+    /* Initialize sprite tile data. */
+    set_sprite_data(0, SPRITE_TILE_COUNT, DropletSprites);
 
     while (1) {
 
@@ -49,7 +48,6 @@ int main()
         level_number = LevelMenu();
 
         SWITCH_ROM_MBC1(1);
-        PrintHex16("level_number", level_number);
         if (level_number > 0 && level_number < 3) {
             PlayLevel(level_number);
         }
