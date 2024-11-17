@@ -4,9 +4,9 @@
 SRCDIR = ./src
 OBJDIR = ./build
 BINDIR = ./build/bin
-ROOTDIR = /mnt/c/Users/apadi/Documents/projects/gameboy
+EMU = /mnt/c/Users/75487/Documents/bgb/bgb.exe
 
-CC = /mnt/c/gbdk/bin/lcc.exe
+CC = /opt/gbdk/bin/lcc
 CFLAGS = -Wa-l -Wl-m -Wl-j -I. -I$(SRCDIR) -DUSE_SFR_FOR_REG
 LDFLAGS = -Wa-l -Wl-m -Wl-j -DUSE_SFR_FOR_REG
 
@@ -24,7 +24,6 @@ SOURCES_BANK0 = \
 	src/SpriteSquare16.c \
 	src/Switch.c \
 	src/Utility.c
-
 
 # Bank 1+ sources must be swapped in when needed.
 SOURCES_BANK1 = \
@@ -85,5 +84,5 @@ clean:
 
 .PHONY: play
 play: droplet.gb
-	$(ROOTDIR)/bgb_emulator/bgb.exe $(BINDIR)/$^ &
+	$(EMU) $(BINDIR)/$^ &
 
