@@ -3,14 +3,16 @@
  *  Date:   2020/03/04
  */
 
+// TODO: This demo is currently broken (2025-02-08)
+
 /* ===== Includes ===== */
 #include <stdio.h>
 #include <gb/gb.h>
 
-#include "Droplet.h"
+#include "objects/Droplet.h"
 #include "SpriteTileIndex.h"
 #include "SpriteSquare16.h"
-#include "data\tiles/droplet_sprites.h"
+#include "data/tiles/droplet_sprites.h"
 
 /* ===== MAIN ===== */
 
@@ -30,7 +32,7 @@ int main()
     droplet.sprite.top_right = 2;
     droplet.sprite.bottom_right = 3;
 
-    DropletInitialize(&droplet);
+    // DropletInitialize(&droplet);
 
     /* Set Droplet's inital location */
     MoveSpriteSquare16(&(droplet.sprite), initial_x, initial_y);

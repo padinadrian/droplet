@@ -93,5 +93,5 @@ UINT8 SelectLevel(LevelSelector* selector_ptr)
 {
     const UINT8 x = selector_ptr->pos.x;
     const UINT8 y = selector_ptr->pos.y;
-    return (y * 6) + x + 1;
+    return (y * 6) + x;
 }

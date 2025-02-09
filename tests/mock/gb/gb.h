@@ -104,5 +104,7 @@ static inline void delay(int millis)
 
 #define SHOW_SPRITES (void)0
 #define SHOW_BKG (void)0
+#define HIDE_SPRITES (void)0
+#define HIDE_BKG (void)0
 
 #endif  /* DROPLET_MOCK_GB_H */

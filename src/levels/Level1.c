@@ -5,7 +5,7 @@
 
 /* ===== Includes ===== */
 #include "Gate.h"
-#include "Droplet.h"
+#include "objects/Droplet.h"
 #include "Position.h"
 #include "Level.h"
 #include "data/maps/droplet_level1_bg.h"

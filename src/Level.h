@@ -8,9 +8,9 @@
 
 /* ===== Includes ===== */
 #include <gb/gb.h>
-#include "Gate.h"
-#include "Switch.h"
-#include "Droplet.h"
+#include "objects/Gate.h"
+#include "objects/Switch.h"
+#include "objects/Droplet.h"
 #include "Position.h"
 #include "BackgroundMap.h"
 

@@ -13,14 +13,25 @@
 /* ===== Data Types ===== */
 typedef void (*LevelFunction)(Level*);
 
-/* ===== Functions ===== */
+// List of levels
+enum {
+    LEVEL1,
+    LEVEL2,
+    NUM_LEVELS,
+};
 
-/** Initialize all levels. */
-void InitializeLevels();
+// TODO: ROM Bank map
+
+/* ===== Functions ===== */
 
 /**
  * Main game loop which runs the given level.
  */
 void PlayLevel(UINT8 level_number);
+
+/* ===== LEVELS ===== */
+void InitializeLevel1(Level* level_ptr);
+void InitializeLevel2(Level* level_ptr);
+
 
 #endif  /* DROPLET_LEVELS_H */

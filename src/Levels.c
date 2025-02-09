@@ -5,9 +5,9 @@
 
 /* ===== Includes ===== */
 #include <gb/gb.h>
-#include "Levels.h"
-#include "Gate.h"
-#include "Droplet.h"
+#include "levels/Levels.h"
+#include "objects/Gate.h"
+#include "objects/Droplet.h"
 #include "Position.h"
 #include "Sprites.h"
 #include "SpriteSquare16.h"
@@ -17,22 +17,15 @@
 
 /* ===== Data ===== */
 
-enum { NUM_LEVELS = 3 };
-static LevelFunction level_functions[NUM_LEVELS];
+static LevelFunction level_functions[NUM_LEVELS] = {
+    InitializeLevel1,
+    InitializeLevel2,
+};
+
 static Level global_level;
 
-/* ===== LEVELS ===== */
-void InitializeLevel1(Level* level_ptr);
-void InitializeLevel2(Level* level_ptr);
 
 /* ===== Functions ===== */
-
-/** Initialize all levels. */
-void InitializeLevels()
-{
-   level_functions[1] = InitializeLevel1;
-   level_functions[2] = InitializeLevel2;
-}
 
 /** Load the level. */
 void LoadLevel(

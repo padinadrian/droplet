@@ -9,11 +9,11 @@
 #include <gb/gb.h>
 #include "data/tiles/droplet_sprites.h"
 #include "data/tiles/droplet_background_tiles.h"
+#include "levels/Levels.h"
 #include "BackgroundTileIndex.h"
 #include "Sprites.h"
 #include "SpriteTileIndex.h"
 #include "LevelMenu.h"
-#include "Levels.h"
 #include "Splash.h"
 
 /* ===== MAIN ===== */
@@ -32,7 +32,6 @@ int main()
 
     /* Initialize internal data. */
     InitializeSpriteCounter();
-    InitializeLevels();
 
     /* Initialize sprite tile data. */
     set_sprite_data(0, SPRITE_TILE_COUNT, DropletSprites);
@@ -48,7 +47,7 @@ int main()
         level_number = LevelMenu();
 
         SWITCH_ROM_MBC1(1);
-        if (level_number > 0 && level_number < 3) {
+        if (level_number < NUM_LEVELS) {
             PlayLevel(level_number);
         }
         else {

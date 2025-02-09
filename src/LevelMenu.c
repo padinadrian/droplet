@@ -6,7 +6,7 @@
 /* ===== Includes ===== */
 #include <gb/gb.h>
 #include "LevelMenu.h"
-#include "Levels.h"
+#include "levels/Levels.h"
 #include "Sprites.h"
 #include "Utility.h"
 #include "LevelSelector.h"
@@ -50,7 +50,8 @@ UINT8 LevelMenu()
 
     waitpadup();
 
-    while (0 == level_number) {
+    UINT8 level_selected = 0;
+    while (!level_selected) {
         /* Poll the joypad for input changes. */
         joypad_input = JoypadChanges(joypad());
         if (joypad_input) {
@@ -61,6 +62,7 @@ UINT8 LevelMenu()
             /* Select a level. */
             if (joypad_input & (J_A | J_START)) {
                 level_number = SelectLevel(&selector);
+                level_selected = 1;
             }
         }
         delay(50);

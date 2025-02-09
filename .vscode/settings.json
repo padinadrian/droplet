@@ -14,7 +14,14 @@
         "gate.h": "c",
         "droplet_level_menu_bg.h": "c",
         "backgroundtileindex.h": "c",
-        "debug.h": "c"
+        "debug.h": "c",
+        "stdint.h": "c",
+        "level.h": "c",
+        "switch.h": "c",
+        "sprites.h": "c",
+        "droplet_level2_bg.h": "c",
+        "levels.h": "c",
+        "levelselector.h": "c"
     },
     "python.pythonPath": "C:\\Program Files (x86)\\Python38-32\\python.exe"
 }

@@ -8,7 +8,7 @@
 #include <string.h>
 #include <gb/gb.h>
 
-#include "Droplet.h"
+#include "objects/Droplet.h"
 #include "BackgroundTileIndex.h"
 #include "SpriteTileIndex.h"
 
