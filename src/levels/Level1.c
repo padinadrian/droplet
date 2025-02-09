@@ -4,7 +4,7 @@
  */
 
 /* ===== Includes ===== */
-#include "Gate.h"
+#include "objects/Gate.h"
 #include "objects/Droplet.h"
 #include "Position.h"
 #include "Level.h"

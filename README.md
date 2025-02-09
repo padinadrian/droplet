@@ -7,3 +7,15 @@ A simple puzzle-style game for Game Boy
 
 2. Run `make`
 
+## Tools
+
+Harry Mulder's Gameboy Map Builder (GBMB):
+
+* https://www.devrs.com/gb/hmgd/gbmb.html
+
+Harry Mulder's Gameboy Tile Designer (GBTD):
+
+* https://www.devrs.com/gb/hmgd/gbtd.html
+
+
+

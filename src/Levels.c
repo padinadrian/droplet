@@ -20,6 +20,7 @@
 static LevelFunction level_functions[NUM_LEVELS] = {
     InitializeLevel1,
     InitializeLevel2,
+    InitializeLevel3,
 };
 
 static Level global_level;

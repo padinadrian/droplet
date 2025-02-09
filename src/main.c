@@ -52,7 +52,7 @@ int main()
         }
         else {
             SWITCH_ROM_MBC1(1);
-            printf("bad level number!\n");
+            printf("bad level number %d!\n", level_number);
         }
 
         /* TODO: Remove later. */

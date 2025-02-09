@@ -17,6 +17,7 @@ typedef void (*LevelFunction)(Level*);
 enum {
     LEVEL1,
     LEVEL2,
+    LEVEL3,
     NUM_LEVELS,
 };
 
@@ -32,6 +33,7 @@ void PlayLevel(UINT8 level_number);
 /* ===== LEVELS ===== */
 void InitializeLevel1(Level* level_ptr);
 void InitializeLevel2(Level* level_ptr);
+void InitializeLevel3(Level* level_ptr);
 
 
 #endif  /* DROPLET_LEVELS_H */

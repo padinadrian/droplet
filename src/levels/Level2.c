@@ -4,7 +4,7 @@
  */
 
 /* ===== Includes ===== */
-#include "Gate.h"
+#include "objects/Gate.h"
 #include "objects/Droplet.h"
 #include "Position.h"
 #include "Level.h"
@@ -19,7 +19,6 @@
  */
 static enum { LEVEL2_NUM_SWITCHES = 4 };
 static enum { LEVEL2_NUM_GATES = 6 };
-static enum { LEVEL2_NUM_GATE_SW = 4 };
 void InitializeLevel2(Level* level_ptr)
 {
     /* Background */
