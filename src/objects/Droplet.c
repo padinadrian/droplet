@@ -22,8 +22,6 @@
  */
 void DropletInitialize(Droplet* droplet_ptr, Position* start_pos)
 {
-    SpriteSquare16* sprite_ptr = &(droplet_ptr->sprite);
-
     /* Reset status flags and counters. */
     droplet_ptr->squat_counter = 0;
     droplet_ptr->squatting = 0;
@@ -31,6 +29,7 @@ void DropletInitialize(Droplet* droplet_ptr, Position* start_pos)
     droplet_ptr->pressed = 0;
 
     /* Set sprite IDs. */
+    SpriteSquare16* sprite_ptr = &(droplet_ptr->sprite);
     sprite_ptr->top_left = NewSpriteID();
     sprite_ptr->bottom_left = NewSpriteID();
     sprite_ptr->top_right = NewSpriteID();

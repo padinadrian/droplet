@@ -17,14 +17,15 @@
 
 /* ===== Data ===== */
 
+// Lookup table for level init function pointers.
 static LevelFunction level_functions[NUM_LEVELS] = {
     InitializeLevel1,
     InitializeLevel2,
     InitializeLevel3,
 };
 
+// Global level instance for the current level.
 static Level global_level;
-
 
 /* ===== Functions ===== */
 
@@ -83,6 +84,11 @@ void LoadLevel(
         );
     }
 
+    /* Initialize spiders. */
+    for (i = 0; i < level_ptr->num_spiders; ++i) {
+        SpiderInitialize(&(level_ptr->spiders[i]));
+    }
+
     SHOW_SPRITES;
     SHOW_BKG;
 }
@@ -90,6 +96,7 @@ void LoadLevel(
 /** Load the level and play it. */
 void PlayLevel(UINT8 level_number)
 {
+    UINT8 i;
     UINT8 joypad_input = 0;
     UINT8 a_pressed = 0;
     Droplet droplet;
@@ -105,8 +112,6 @@ void PlayLevel(UINT8 level_number)
     {
         /* Switch between normal and squished. */
         DropletAnimate(&droplet);
-
-        /* TODO: Move enemies and check for collision. */
 
         /* Move Droplet around the screen. */
         joypad_input = joypad();
@@ -131,6 +136,11 @@ void PlayLevel(UINT8 level_number)
         }
         else {
             a_pressed = 0;
+        }
+
+        /* Move enemies and check for collision. */
+        for (i = 0; i < level_ptr->num_spiders; ++i) {
+            UpdateSpider(&(level_ptr->spiders[i]));
         }
 
         /* Loop time of ~50ms */

@@ -14,6 +14,7 @@ LDFLAGS = -Wa-l -Wl-m -Wl-j -DUSE_SFR_FOR_REG
 SOURCES_BANK0 = \
 	src/objects/Droplet.c \
 	src/objects/Gate.c \
+	src/objects/Spider.c \
 	src/objects/Switch.c \
 	src/main.c \
 	src/Debug.c \

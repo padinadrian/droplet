@@ -67,6 +67,18 @@ typedef enum {
     SPRITE_LEVEL_SELECTOR_4 = 38,
     SPRITE_LEVEL_SELECTOR_5 = 39,
 
+    /* Spider, 16x16, state 0  */
+    SPRITE_SPIDER_16_STATE_0_TL  = 40,
+    SPRITE_SPIDER_16_STATE_0_BL,
+    SPRITE_SPIDER_16_STATE_0_TR,
+    SPRITE_SPIDER_16_STATE_0_BR,
+
+    /* Spider, 16x16, state 1  */
+    SPRITE_SPIDER_16_STATE_1_TL  = 44,
+    SPRITE_SPIDER_16_STATE_1_BL,
+    SPRITE_SPIDER_16_STATE_1_TR,
+    SPRITE_SPIDER_16_STATE_1_BR,
+
     /* The total number of sprites. */
     SPRITE_TILE_COUNT
 } SpriteTileIndex;

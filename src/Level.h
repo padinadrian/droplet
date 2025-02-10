@@ -8,9 +8,10 @@
 
 /* ===== Includes ===== */
 #include <gb/gb.h>
-#include "objects/Gate.h"
-#include "objects/Switch.h"
 #include "objects/Droplet.h"
+#include "objects/Gate.h"
+#include "objects/Spider.h"
+#include "objects/Switch.h"
 #include "Position.h"
 #include "BackgroundMap.h"
 
@@ -21,10 +22,13 @@ typedef struct {
     Position start_pos;
     Position exit_pos;
     Switch switches[10];
-    Gate gates[10];
-    GateSwitch gateswitches[10];
     UINT8 num_switches;
+    Gate gates[10];
     UINT8 num_gates;
+    Spider spiders[10];
+    UINT8 num_spiders;
+    // TODO: Are we using GateSwitches?
+    GateSwitch gateswitches[10];
 } Level;
 
 /* ===== Functions ===== */
