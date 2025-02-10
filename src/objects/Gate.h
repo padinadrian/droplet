@@ -1,6 +1,6 @@
 /**
  *  Author: Adrian Padin (padin.adrian@gmail.com)
- *  Date:   2020/04/30
+ *  Date:   2020-04-30
  */
 
 #ifndef DROPLET_GATE_H

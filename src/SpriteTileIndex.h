@@ -1,6 +1,6 @@
 /**
  *  Author: Adrian Padin (padin.adrian@gmail.com)
- *  Date:   2020/03/04
+ *  Date:   2020-03-04
  */
 
 #ifndef DROPLET_SPRITE_TILE_INDEX_H

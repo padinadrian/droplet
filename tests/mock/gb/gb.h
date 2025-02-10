@@ -1,6 +1,6 @@
 /**
  *  Author: Adrian Padin (padin.adrian@gmail.com)
- *  Date:   2020/05/04
+ *  Date:   2020-05-04
  */
 
 #ifndef DROPLET_MOCK_GB_H

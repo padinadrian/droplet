@@ -1,6 +1,6 @@
 /**
  *  Author: Adrian Padin (padin.adrian@gmail.com)
- *  Date:   2020/03/04
+ *  Date:   2020-03-04
  */
 
 // TODO: This demo is currently broken (2025-02-08)

@@ -1,6 +1,6 @@
 /**
  *  Author: Adrian Padin (padin.adrian@gmail.com)
- *  Date:   2020/03/15
+ *  Date:   2020-03-15
  */
 
 #ifndef DROPLET_POSITION_H

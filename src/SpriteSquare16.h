@@ -1,6 +1,6 @@
 /**
  *  Author: Adrian Padin (padin.adrian@gmail.com)
- *  Date:   2020/03/08
+ *  Date:   2020-03-08
  */
 
 #ifndef DROPLET_SPRITE_SQUARE_16_H

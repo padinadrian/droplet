@@ -1,6 +1,6 @@
 /**
  *  Author: Adrian Padin (padin.adrian@gmail.com)
- *  Date:   2020/06/01
+ *  Date:   2020-06-01
  */
 
 #ifndef DROPLET_UTILITY_H

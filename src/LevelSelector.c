@@ -1,6 +1,6 @@
 /**
  *  Author: Adrian Padin (padin.adrian@gmail.com)
- *  Date:   2020/05/24
+ *  Date:   2020-05-24
  */
 
 /* ===== Includes ===== */
