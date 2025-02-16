@@ -22,8 +22,8 @@ typedef struct {
 
 // The animation states of the Spider.
 typedef enum {
-    SPIDER_STATE0,
-    SPIDER_STATE1,
+    SPIDER_STATE_0,
+    SPIDER_STATE_1,
     NUM_SPIDER_STATES,
 } SpiderState;
 
@@ -37,15 +37,12 @@ enum { SPIDER_MAX_COUNTER = 8 };
 void SpiderInitialize(Spider* spider_ptr)
 {
     // Initial state
-    spider_ptr->state = SPIDER_STATE0;
+    spider_ptr->state = SPIDER_STATE_0;
     spider_ptr->state_counter = 0;
 
     // Initialize sprites
     SpriteSquare16* sprite_ptr = &(spider_ptr->sprite);
-    sprite_ptr->top_left = NewSpriteID();
-    sprite_ptr->bottom_left = NewSpriteID();
-    sprite_ptr->top_right = NewSpriteID();
-    sprite_ptr->bottom_right = NewSpriteID();
+    InitializeSpriteSquare16(sprite_ptr);
 
     SetSpriteTileSquare16(
         sprite_ptr,
@@ -64,22 +61,22 @@ void SpiderInitialize(Spider* spider_ptr)
 void UpdateSpider(Spider* spider_ptr)
 {
     // Update state counter
-    UINT8 counter = IncrememntRollover(spider_ptr->state_counter, SPIDER_MAX_COUNTER);
+    UINT8 counter = IncrementRollover(spider_ptr->state_counter, SPIDER_MAX_COUNTER);
     spider_ptr->state_counter = counter;
 
     if (counter == 0) {
-        SpiderState new_state = IncrememntRollover(spider_ptr->state, NUM_SPIDER_STATES - 1);
+        SpiderState new_state = IncrementRollover(spider_ptr->state, NUM_SPIDER_STATES - 1);
         spider_ptr->state = new_state;
 
         switch (new_state) {
-            case SPIDER_STATE0: {
+            case SPIDER_STATE_0: {
                 SetSpriteTileSquare16(
                     &spider_ptr->sprite,
                     (UINT8)SPRITE_SPIDER_16_STATE_0_TL
                 );
                 break;
             }
-            case SPIDER_STATE1: {
+            case SPIDER_STATE_1: {
                 SetSpriteTileSquare16(
                     &spider_ptr->sprite,
                     (UINT8)SPRITE_SPIDER_16_STATE_1_TL

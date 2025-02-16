@@ -39,3 +39,13 @@ void MoveSprite(UINT8 sprite_id, UINT8 x_pos, UINT8 y_pos)
 {
     move_sprite(sprite_id, x_pos + 8, y_pos + 16);
 }
+
+/**
+ * Flip the sprite horizontally or vertically.
+ */
+void FlipSprite(UINT8 sprite_id, FlipDirection direction)
+{
+    UINT8 flags = get_sprite_prop(sprite_id);
+    flags = flags ^ direction;
+    set_sprite_prop(sprite_id, flags);
+}

@@ -16,9 +16,17 @@ typedef struct {
     UINT8 bottom_left;
     UINT8 top_right;
     UINT8 bottom_right;
+
+    UINT8 direction;
+    UINT8 top_left_tile;
 } SpriteSquare16;
 
 /* ===== Functions ===== */
+
+/**
+ * Initialize sprite IDs for a 16x16 sprite.
+ */
+void InitializeSpriteSquare16(SpriteSquare16* sprite_ptr);
 
 /**
  * Set tiles for a 16x16 sprite all at once.
@@ -43,6 +51,11 @@ void ScrollSpriteSquare16(
     SpriteSquare16* sprite_ptr,
     INT8 x_scroll,
     INT8 y_scroll);
+
+/**
+ * Flip a 16x16 sprite horizontally.
+ */
+void FlipHorizontalSpriteSquare16(SpriteSquare16* sprite_ptr);
 
 
 #endif  /* DROPLET_SPRITE_SQUARE_16_H */

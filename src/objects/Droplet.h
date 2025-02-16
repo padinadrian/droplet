@@ -15,9 +15,8 @@
 typedef struct {
     SpriteSquare16 sprite;
     Position pos;
-    UINT8 squat_counter;
-    UINT8 squatting;
-    UINT8 facing_right;
+    UINT8 state;
+    UINT8 state_counter;
     UINT8 pressed;
 } Droplet;
 

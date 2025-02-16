@@ -73,6 +73,19 @@ static inline void scroll_sprite(
     // Nothing
 }
 
+
+/* Returns the OAM Property Flags of sprite number nb. */
+UINT8 get_sprite_prop (UINT8 sprite_id)
+{
+    // Nothing
+}
+
+/* Sets the OAM Property Flags of sprite number nb to those defined in prop. */
+void set_sprite_prop(UINT8 sprite_id, UINT8 flags)
+{
+    // Nothing
+}
+
 /* Initialize the background tile data in memory. */
 static inline void set_bkg_data(
     UINT8 first_tile_index,
@@ -101,6 +114,12 @@ static inline void delay(int millis)
 {
     // Nothing
 }
+
+/* Flags for get_sprite_prop and set_sprite_prop. */
+typedef enum {
+    S_FLIPX = 1 << 5,
+    S_FLIPY = 1 << 6,
+} SpritePropertyFlags;
 
 #define SHOW_SPRITES (void)0
 #define SHOW_BKG (void)0
