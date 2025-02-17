@@ -88,6 +88,8 @@ void PlayLevel(UINT8 level_number)
     Position* droplet_pos_ptr = &(droplet_global.pos);
     Level* level_ptr = &global_level;
 
+    ResetLevel(level_ptr);
+
     /* TODO: Mapping from level number to ROM bank number. */
     SWITCH_ROM_MBC1(3);
     level_functions[level_number](level_ptr);

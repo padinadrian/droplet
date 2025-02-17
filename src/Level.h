@@ -17,6 +17,7 @@
 
 /* ===== Data Types ===== */
 
+// Data needed to manage the level.
 typedef struct {
     BackgroundMap level_map;
     Position start_pos;
@@ -32,6 +33,14 @@ typedef struct {
 } Level;
 
 /* ===== Functions ===== */
+
+/** Reset the level. */
+static inline void ResetLevel(Level* level_ptr)
+{
+    level_ptr->num_switches = 0;
+    level_ptr->num_gates = 0;
+    level_ptr->num_spiders = 0;
+}
 
 /**
  * Assigns the level map data to the level.
