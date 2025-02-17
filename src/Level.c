@@ -6,6 +6,7 @@
 /* ===== Includes ===== */
 #include "Level.h"
 #include "Position.h"
+#include "objects/Droplet.h"
 
 /* ===== Functions ===== */
 
@@ -37,7 +38,6 @@ UINT8 IsLevelComplete(
  */
 int DropletCheckMovement(
         Level* level_ptr,
-        Droplet* droplet_ptr,
         UINT8 joypad_input)
 {
     Position next_pos1;
@@ -48,8 +48,8 @@ int DropletCheckMovement(
 
     map_ptr = &(level_ptr->level_map);
 
-    PositionCopy(&next_pos1, &(droplet_ptr->pos));
-    PositionCopy(&next_pos2, &(droplet_ptr->pos));
+    PositionCopy(&next_pos1, droplet_global.pos);
+    PositionCopy(&next_pos2, droplet_global.pos);
 
     /* Determine which tiles Droplet is trying to move into. */
     switch (joypad_input)
@@ -76,12 +76,12 @@ int DropletCheckMovement(
             break;
         default:
             /* TODO: This should be unreachable. */
-            droplet_ptr->pressed = 0;
+            droplet_global.pressed = 0;
             return 0;
     }
 
-    PositionCopy(&next_px_pos1, &next_pos1);
-    PositionCopy(&next_px_pos2, &next_pos2);
+    PositionCopy(&next_px_pos1, next_pos1);
+    PositionCopy(&next_px_pos2, next_pos2);
     GridPosToPixelPos(&next_px_pos1);
     GridPosToPixelPos(&next_px_pos2);
 

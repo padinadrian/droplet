@@ -21,7 +21,11 @@ typedef struct {
 /**
  * Copy a Position object from dest into src.
  */
-void PositionCopy(Position* dest, const Position* src);
+static inline void PositionCopy(Position* dest, const Position src)
+{
+    dest->x = src.x;
+    dest->y = src.y;
+}
 
 /**
  * Compare two Positions to see if they are the same.
@@ -36,12 +40,18 @@ UINT8 PositionCompare(const Position* pos1, const Position* pos2);
  */
 UINT8 PositionProximityCheck(const Position* pos1, const Position* pos2);
 
+
 /**
  * Convert a position in the grid coordinate system to a
  * position in the pixel coordinate system.
  * Operation is performed inline on the object itself.
  */
-void GridPosToPixelPos(Position* grid_pos_ptr);
+static inline void GridPosToPixelPos(Position* grid_pos_ptr)
+{
+    /* TODO: Take scrolling into consideration */
+    grid_pos_ptr->x <<= 3;
+    grid_pos_ptr->y <<= 3;
+}
 
 
 #endif  /* DROPLET_POSITION_H */

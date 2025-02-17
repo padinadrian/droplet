@@ -40,7 +40,7 @@ void FlipSwitch(Switch* switch_ptr);
 void FlipNearbySwitches(
     Switch* switches,
     UINT8 num_switches,
-    Position* droplet_pos
+    Position droplet_pos
 );
 
 #endif  /* DROPLET_SWITCH_H */

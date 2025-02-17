@@ -30,12 +30,9 @@ static Level global_level;
 /* ===== Functions ===== */
 
 /** Load the level. */
-void LoadLevel(
-        Level* level_ptr,
-        Droplet* droplet_ptr)
+void LoadLevel(Level* level_ptr)
 {
     UINT8 i;
-    Position droplet_pixel_pos;
 
     SWITCH_ROM_MBC1(1);
     set_bkg_data(BACKGROUND_TILE_START, NUM_BACKGROUND_TILES, DropletBkgTiles);
@@ -44,18 +41,7 @@ void LoadLevel(
     SetBackground(&(level_ptr->level_map));
 
     ClearExistingSprites();
-    DropletInitialize(droplet_ptr, &level_ptr->start_pos);
-
-    /* Move Droplet to the starting position. */
-    droplet_pixel_pos.x = droplet_ptr->pos.x;
-    droplet_pixel_pos.y = droplet_ptr->pos.y;
-
-    GridPosToPixelPos(&droplet_pixel_pos);
-    MoveSpriteSquare16(
-        &(droplet_ptr->sprite),
-        droplet_pixel_pos.x,
-        droplet_pixel_pos.y
-    );
+    DropletInitialize(level_ptr->start_pos);
 
     /* Initialize gates and switches. */
     for (i = 0; i < level_ptr->num_switches; ++i) {
@@ -99,24 +85,23 @@ void PlayLevel(UINT8 level_number)
     UINT8 i;
     UINT8 joypad_input = 0;
     UINT8 a_pressed = 0;
-    Droplet droplet;
-    Position* droplet_pos_ptr = &(droplet.pos);
+    Position* droplet_pos_ptr = &(droplet_global.pos);
     Level* level_ptr = &global_level;
 
     /* TODO: Mapping from level number to ROM bank number. */
     SWITCH_ROM_MBC1(3);
     level_functions[level_number](level_ptr);
-    LoadLevel(level_ptr, &droplet);
+    LoadLevel(level_ptr);
 
     while (!IsLevelComplete(level_ptr, droplet_pos_ptr))
     {
         /* Switch between normal and squished. */
-        DropletAnimate(&droplet);
+        DropletAnimate();
 
         /* Move Droplet around the screen. */
         joypad_input = joypad();
-        if (DropletCheckMovement(level_ptr, &droplet, joypad_input)) {
-            MoveDroplet(&droplet, joypad_input);
+        if (DropletCheckMovement(level_ptr, joypad_input)) {
+            MoveDroplet(joypad_input);
         }
 
         if (joypad_input & J_A) {
@@ -125,7 +110,7 @@ void PlayLevel(UINT8 level_number)
                 FlipNearbySwitches(
                     level_ptr->switches,
                     level_ptr->num_switches,
-                    droplet_pos_ptr
+                    *droplet_pos_ptr
                 );
                 CheckGateSwitches(
                     level_ptr->gates,

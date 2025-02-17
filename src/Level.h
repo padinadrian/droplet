@@ -57,7 +57,6 @@ UINT8 IsLevelComplete(
  */
 int DropletCheckMovement(
     Level* level_ptr,
-    Droplet* droplet_ptr,
     UINT8 joypad_input
 );
 

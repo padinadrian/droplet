@@ -12,6 +12,7 @@
 
 /* ===== Data Types ===== */
 
+// Data needed to manage Droplet.
 typedef struct {
     SpriteSquare16 sprite;
     Position pos;
@@ -20,22 +21,25 @@ typedef struct {
     UINT8 pressed;
 } Droplet;
 
+// Reference to global Droplet instance.
+extern Droplet droplet_global;
+
 /* ===== Functions ===== */
 
 /**
  * Initialize Droplet sprite and data.
  */
-void DropletInitialize(Droplet* droplet_ptr, Position* start_pos);
+void DropletInitialize(Position start_pos);
 
 /**
  * Animate Droplet squatting when he is idle.
  * This function should be called once per game loop.
  */
-void DropletAnimate(Droplet* droplet_ptr);
+void DropletAnimate();
 
 /**
  * Initialize Droplet sprite.
  */
-void MoveDroplet(Droplet* droplet_ptr, UINT8 direction);
+void MoveDroplet(UINT8 direction);
 
 #endif  /* DROPLET_DROPLET_H */

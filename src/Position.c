@@ -8,13 +8,6 @@
 
 /* ===== Functions ===== */
 
-/** Copy a Position object from dest into src. */
-void PositionCopy(Position* dest, const Position* src)
-{
-    dest->x = src->x;
-    dest->y = src->y;
-}
-
 /** Compare two Positions to see if they are the same. */
 UINT8 PositionCompare(const Position* pos1, const Position* pos2)
 {
@@ -31,16 +24,4 @@ UINT8 PositionProximityCheck(const Position* pos1, const Position* pos2)
     UINT8 x_diff = (x1 > x2) ? x1 - x2 : x2 - x1;
     UINT8 y_diff = (y1 > y2) ? y1 - y2 : y2 - y1;
     return (y_diff < 9 && x_diff < 9);
-}
-
-/**
- * Convert a position in the grid coordinate system to a
- * position in the pixel coordinate system.
- * Operation is performed inline on the object itself.
- */
-void GridPosToPixelPos(Position* grid_pos_ptr)
-{
-    /* TODO: Take scrolling into consideration */
-    grid_pos_ptr->x <<= 3;
-    grid_pos_ptr->y <<= 3;
 }
