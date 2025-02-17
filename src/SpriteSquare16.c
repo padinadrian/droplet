@@ -18,6 +18,7 @@ void InitializeSpriteSquare16(SpriteSquare16* sprite_ptr)
     sprite_ptr->bottom_left = NewSpriteID();
     sprite_ptr->top_right = NewSpriteID();
     sprite_ptr->bottom_right = NewSpriteID();
+    sprite_ptr->top_left_tile = 0;
 }
 
 /**
@@ -28,6 +29,7 @@ void SetSpriteTileSquare16(
         SpriteSquare16* sprite_ptr,
         UINT8 top_left_tile)
 {
+    sprite_ptr->top_left_tile = top_left_tile;
     /* set_sprite_tile(<sprite_id>, <sprite_data_index>); */
     // check if flipped
     UINT8 flags = get_sprite_prop(sprite_ptr->top_left);
@@ -100,11 +102,13 @@ void ScrollSpriteSquare16(
  */
 void FlipHorizontalSpriteSquare16(SpriteSquare16* sprite_ptr)
 {
-    FlipSprite(sprite_ptr->top_left, FLIP_HORIZONTAL);
-    FlipSprite(sprite_ptr->top_right, FLIP_HORIZONTAL);
-    FlipSprite(sprite_ptr->bottom_left, FLIP_HORIZONTAL);
-    FlipSprite(sprite_ptr->bottom_right, FLIP_HORIZONTAL);
+    UINT8 flags = get_sprite_prop(sprite_ptr->top_left);
+    flags = flags ^ FLIP_HORIZONTAL;
+    set_sprite_prop(sprite_ptr->top_left, flags);
+    set_sprite_prop(sprite_ptr->top_right, flags);
+    set_sprite_prop(sprite_ptr->bottom_left, flags);
+    set_sprite_prop(sprite_ptr->bottom_right, flags);
 
-    UINT8 top_left = get_sprite_tile(sprite_ptr->top_left);
-    SetSpriteTileSquare16(sprite_ptr, top_left);
+    UINT8 top_left_tile = sprite_ptr->top_left_tile;
+    SetSpriteTileSquare16(sprite_ptr, top_left_tile);
 }

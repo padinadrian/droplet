@@ -16,8 +16,6 @@ typedef struct {
     UINT8 bottom_left;
     UINT8 top_right;
     UINT8 bottom_right;
-
-    UINT8 direction;
     UINT8 top_left_tile;
 } SpriteSquare16;
 
