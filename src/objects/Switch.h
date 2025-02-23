@@ -9,6 +9,7 @@
 /* ===== Includes ===== */
 #include <gb/gb.h>
 #include "Position.h"
+#include "Sprites.h"
 #include "SpriteTileIndex.h"
 
 /* ===== Data Types ===== */
@@ -26,6 +27,9 @@ typedef struct {
 } Switch;
 
 /* ===== Functions ===== */
+
+/** Initialize Switch object. */
+void InitializeSwitch(Switch* switch_ptr);
 
 /** Set the switch state and display the animation. */
 void SetSwitchState(Switch* switch_ptr, SwitchState state);

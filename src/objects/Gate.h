@@ -36,6 +36,9 @@ typedef struct {
 
 /* ===== Functions ===== */
 
+/** Initialize Gate object. */
+void InitializGate(Gate* gate_ptr);
+
 /** Set the gate state and display the animation. */
 void SetGateState(Gate* gate_ptr, GateState state);
 

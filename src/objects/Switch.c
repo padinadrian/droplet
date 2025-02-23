@@ -10,6 +10,21 @@
 
 /* ===== Functions ===== */
 
+/** Initialize Switch object. */
+void InitializeSwitch(Switch* switch_ptr)
+{
+    switch_ptr->sprite = NewSpriteID();
+    MoveSprite(
+        switch_ptr->sprite,
+        switch_ptr->pos.x,
+        switch_ptr->pos.y
+    );
+    SetSwitchState(
+        switch_ptr,
+        switch_ptr->state
+    );
+}
+
 /** Set the switch state and display the animation. */
 void SetSwitchState(Switch* switch_ptr, SwitchState state)
 {

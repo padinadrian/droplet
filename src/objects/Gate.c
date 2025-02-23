@@ -10,6 +10,21 @@
 
 /* ===== Functions ===== */
 
+/** Initialize Gate object. */
+void InitializGate(Gate* gate_ptr)
+{
+    gate_ptr->sprite = NewSpriteID();
+    MoveSprite(
+        gate_ptr->sprite,
+        gate_ptr->pos.x,
+        gate_ptr->pos.y
+    );
+    SetGateState(
+        gate_ptr,
+        gate_ptr->state
+    );
+}
+
 /** Set the gate state and display the animation. */
 void SetGateState(Gate* gate_ptr, GateState state)
 {

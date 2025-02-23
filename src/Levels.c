@@ -45,29 +45,10 @@ void LoadLevel(Level* level_ptr)
 
     /* Initialize gates and switches. */
     for (i = 0; i < level_ptr->num_switches; ++i) {
-        level_ptr->switches[i].sprite = NewSpriteID();
-        MoveSprite(
-            level_ptr->switches[i].sprite,
-            level_ptr->switches[i].pos.x,
-            level_ptr->switches[i].pos.y
-        );
-        SetSwitchState(
-            &(level_ptr->switches[i]),
-            level_ptr->switches[i].state
-        );
+        InitializeSwitch(&level_ptr->switches[i]);
     }
-
     for (i = 0; i < level_ptr->num_gates; ++i) {
-        level_ptr->gates[i].sprite = NewSpriteID();
-        MoveSprite(
-            level_ptr->gates[i].sprite,
-            level_ptr->gates[i].pos.x,
-            level_ptr->gates[i].pos.y
-        );
-        SetGateState(
-            &(level_ptr->gates[i]),
-            level_ptr->gates[i].state
-        );
+        InitializGate(&level_ptr->gates[i]);
     }
 
     /* Initialize spiders. */
