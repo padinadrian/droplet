@@ -65,7 +65,7 @@ UINT8 LevelMenu()
                 level_selected = 1;
             }
         }
-        delay(50);
+        vsync();
     }
 
     return level_number;

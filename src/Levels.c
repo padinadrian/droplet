@@ -112,7 +112,7 @@ void PlayLevel(UINT8 level_number)
         }
 
         /* Loop time of ~50ms */
-        delay(50);
+        vsync();
     }
 
     ClearExistingSprites();

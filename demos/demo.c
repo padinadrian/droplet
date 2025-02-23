@@ -83,8 +83,7 @@ int demo()
         joypad_input = joypad();
         MoveDroplet(&droplet, joypad_input, &level1_map);
 
-        /* Loop time of ~50ms */
-        delay(50);
+        vsync();
     }
 
     return 0;

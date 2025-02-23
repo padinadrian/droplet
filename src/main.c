@@ -58,9 +58,5 @@ int main()
         /* TODO: Remove later. */
         printf("Press start...\n");
         waitpad(J_START);
-
-        /* delay(5000); */
     }
-
-    return 0;
 }

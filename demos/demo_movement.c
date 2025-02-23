@@ -46,8 +46,7 @@ int main()
         /* Move Droplet around the screen. */
         MoveDroplet(&droplet, joypad());
 
-        /* Loop time of ~50ms */
-        delay(50);
+        vsync();
     }
 
     return 0;

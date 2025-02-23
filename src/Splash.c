@@ -86,7 +86,8 @@ void Splash()
         {
             scroll_sprite(i, -8, 16);
         }
-        delay(50);
+        vsync();
+        vsync();
     }
 
     /* Do this manually since IDs were not allocated through NewSpriteID. */

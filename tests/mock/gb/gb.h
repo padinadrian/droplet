@@ -107,7 +107,10 @@ static inline void set_bkg_tiles(
 }
 
 /* Wait until all buttons are released. */
-void waitpadup();
+static inline void waitpadup()
+{
+    // Nothing
+}
 
 /* Sleep the processor for the given number of milliseconds. */
 static inline void delay(int millis)

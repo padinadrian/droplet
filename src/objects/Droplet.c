@@ -21,7 +21,7 @@ typedef enum {
     NUM_DROPLET_STATES,
 } DropletState;
 
-enum { DROPLET_COUNTER_MAX = 20 };
+enum { DROPLET_COUNTER_MAX = 30 };
 
 // Global Droplet instance.
 Droplet droplet_global;
