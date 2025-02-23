@@ -125,7 +125,6 @@ void MoveDroplet(UINT8 direction)
                 switch (droplet_global.state) {
                     case DROPLET_STATE_NORMAL_RIGHT:
                     case DROPLET_STATE_SQUAT_RIGHT: {
-                        droplet_global.state = DROPLET_STATE_NORMAL_LEFT;
                         FlipHorizontalSpriteSquare16(&droplet_global.sprite);
                         break;
                     }
@@ -133,8 +132,9 @@ void MoveDroplet(UINT8 direction)
                 ScrollSpriteSquare16(&droplet_global.sprite, -8, 0);
                 droplet_global.pos.x -= 1;
                 droplet_global.pressed = 1;
+                droplet_global.state |= 1;  // Reverse direction
+                droplet_global.state_counter = DROPLET_COUNTER_MAX;
             }
-            droplet_global.state_counter = DROPLET_COUNTER_MAX;
             break;
         }
         case J_RIGHT: {
@@ -143,7 +143,6 @@ void MoveDroplet(UINT8 direction)
                 switch (droplet_global.state) {
                     case DROPLET_STATE_NORMAL_LEFT:
                     case DROPLET_STATE_SQUAT_LEFT: {
-                        droplet_global.state = DROPLET_STATE_NORMAL_RIGHT;
                         FlipHorizontalSpriteSquare16(&droplet_global.sprite);
                         break;
                     }
@@ -151,8 +150,9 @@ void MoveDroplet(UINT8 direction)
                 ScrollSpriteSquare16(&droplet_global.sprite, 8, 0);
                 droplet_global.pos.x += 1;
                 droplet_global.pressed = 1;
+                droplet_global.state &= -2;  // Reverse direction
+                droplet_global.state_counter = DROPLET_COUNTER_MAX;
             }
-            droplet_global.state_counter = DROPLET_COUNTER_MAX;
             break;
         }
         case J_UP: {
@@ -161,8 +161,8 @@ void MoveDroplet(UINT8 direction)
                 ScrollSpriteSquare16(&droplet_global.sprite, 0, -8);
                 droplet_global.pos.y -= 1;
                 droplet_global.pressed = 1;
+                droplet_global.state_counter = DROPLET_COUNTER_MAX;
             }
-            droplet_global.state_counter = DROPLET_COUNTER_MAX;
             break;
         }
         case J_DOWN: {
@@ -171,8 +171,8 @@ void MoveDroplet(UINT8 direction)
                 ScrollSpriteSquare16(&droplet_global.sprite, 0, 8);
                 droplet_global.pos.y += 1;
                 droplet_global.pressed = 1;
+                droplet_global.state_counter = DROPLET_COUNTER_MAX;
             }
-            droplet_global.state_counter = DROPLET_COUNTER_MAX;
             break;
         }
         default: {
