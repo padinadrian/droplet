@@ -43,3 +43,18 @@ TEST(Hitbox, CheckCollision3)
     b.br.x = 2; b.br.y = 2;
     EXPECT_EQ(CheckCollision(&a, &b), 0);
 }
+
+// Check if hitboxes are intersecting.
+TEST(Hitbox, CheckCollision4)
+{
+    Hitbox a, b;
+    a.tl.x = (14 << 3) +  1;  a.tl.y = (8 << 3) + 1;
+    a.br.x = (14 << 3) + 14;  a.br.y = (8 << 3) + 14;
+    b.tl.x = (16 << 3) -  2;  b.tl.y = (8 << 3) - 2;
+    b.br.x = (16 << 3) +  9;  b.br.y = (8 << 3) + 9;
+    EXPECT_EQ(CheckCollision(&a, &b), 0);
+
+    a.tl.x += 1;
+    a.br.x += 1;
+    EXPECT_EQ(CheckCollision(&a, &b), 1);
+}
