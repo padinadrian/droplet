@@ -53,6 +53,7 @@ dkms.conf
 
 # All objects in the build folder
 build/*
+tests/build/*
 
 # Others
 *.pyc

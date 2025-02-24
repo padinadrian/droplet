@@ -16,8 +16,8 @@
  * TODO: Move this to a proper data file instead of living
  * in a source file.
  */
-static enum { LEVEL1_NUM_SWITCHES = 3 };
-static enum { LEVEL1_NUM_GATES = 6 };
+enum { LEVEL1_NUM_SWITCHES = 3 };
+enum { LEVEL1_NUM_GATES = 6 };
 void InitializeLevel1(Level* level_ptr)
 {
     /* Background */

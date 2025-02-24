@@ -13,9 +13,9 @@
 /* ===== Functions ===== */
 
 /* Object counters */
-static enum { LEVEL3_NUM_SWITCHES = 0 };
-static enum { LEVEL3_NUM_GATES = 0 };
-static enum {
+enum { LEVEL3_NUM_SWITCHES = 0 };
+enum { LEVEL3_NUM_GATES = 0 };
+enum {
     LEVEL3_SPIDER_0,
     LEVEL3_NUM_SPIDERS,
 };

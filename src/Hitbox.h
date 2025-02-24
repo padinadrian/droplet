@@ -28,8 +28,8 @@ static inline UINT8 CheckCollision(Hitbox* a, Hitbox* b)
     return (
         a->tl.x < b->br.x &&
         a->br.x > b->tl.x &&
-        a->tl.y > b->br.y &&
-        a->br.y < b->tl.y
+        a->tl.y < b->br.y &&
+        a->br.y > b->tl.y
     );
 }
 

@@ -7,6 +7,7 @@
 #include <gtest/gtest.h>
 extern "C" {
     #include "BackgroundMap.h"
+    #include "BackgroundTileIndex.h"
 }
 
 /* ===== Tests ===== */
@@ -15,7 +16,11 @@ TEST(Position, TileIsWall1)
 {
     BackgroundMap map;
     Position p;
-    unsigned char map_data[4] = {0, 0x10, 0x10, 0};
+    unsigned char map_data[4] = {
+        BG_TILE_NULL,   0,
+        0,              BG_TILE_NULL
+    };
+
     map.map_data = +map_data;
     map.width = 2;
     map.height = 2;

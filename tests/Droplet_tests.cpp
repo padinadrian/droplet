@@ -6,8 +6,9 @@
 /* ===== Includes ===== */
 #include <gtest/gtest.h>
 extern "C" {
-    #include "objects/Droplet.h"
+    #include "Level.h"
     #include "BackgroundMap.h"
+    #include "objects/Droplet.h"
     #include "data/maps/droplet_level1_bg.c"
 }
 
@@ -16,42 +17,21 @@ extern "C" {
 TEST(Position, DropletCheckMovement)
 {
     // Initialize map
-    BackgroundMap level1_map;
-    level1_map.map_data = DropletBackgroundLevel1;
-    level1_map.width = DropletBackgroundLevel1Width;
-    level1_map.height = DropletBackgroundLevel1Height;
+    Level level;
+    SetLevelBackground(
+        &level,
+        (UINT8 *)DropletBackgroundLevel1,
+        DropletBackgroundLevel1Width,
+        DropletBackgroundLevel1Height
+    );
 
     // Droplet starting point on grid
     Position droplet_grid_pos = {1, 10};
+    DropletInitialize(droplet_grid_pos);
 
     // Droplet can move right, but not up, down, or left
-    EXPECT_TRUE(
-        DropletCheckMovement(
-            J_RIGHT,
-            &droplet_grid_pos,
-            &level1_map
-        )
-    );
-    EXPECT_FALSE(
-        DropletCheckMovement(
-            J_UP,
-            &droplet_grid_pos,
-            &level1_map
-        )
-    );
-    EXPECT_FALSE(
-        DropletCheckMovement(
-            J_DOWN,
-            &droplet_grid_pos,
-            &level1_map
-        )
-    );
-    EXPECT_FALSE(
-        DropletCheckMovement(
-            J_LEFT,
-            &droplet_grid_pos,
-            &level1_map
-        )
-    );
-
+    EXPECT_TRUE(DropletCheckMovement(&level, J_RIGHT));
+    EXPECT_FALSE(DropletCheckMovement(&level, J_UP));
+    EXPECT_FALSE(DropletCheckMovement(&level, J_DOWN));
+    EXPECT_FALSE(DropletCheckMovement(&level, J_LEFT));
 }

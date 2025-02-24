@@ -36,9 +36,9 @@ typedef enum {
     J_SELECT  = 0x80,
 } MOCK_JOYPAD_DIRECTION;
 
-/* ===== Functions ===== */
+/** ===== Functions ===== */
 
-/* Initialize the sprite tile data in memory. */
+/** Initialize the sprite tile data in memory. */
 static inline void set_sprite_data(
     UINT8 first_tile_index,
     UINT8 number_of_tiles,
@@ -47,7 +47,7 @@ static inline void set_sprite_data(
     // Nothing
 }
 
-/* Assign a tile (image) to a sprite index. */
+/** Assign a tile (image) to a sprite index. */
 static inline void set_sprite_tile(
     UINT8 sprite_index,
     UINT8 tile_index)
@@ -55,7 +55,7 @@ static inline void set_sprite_tile(
     // Nothing
 }
 
-/* Move a sprite to a designated location on-screen. */
+/** Move a sprite to a designated location on-screen. */
 static inline void move_sprite(
     UINT8 sprite_index,
     UINT8 x_pos,
@@ -64,7 +64,7 @@ static inline void move_sprite(
     // Nothing
 }
 
-/* Move the sprite by a relative amount. */
+/** Move the sprite by a relative amount. */
 static inline void scroll_sprite(
     UINT8 sprite_index,
     INT8 x_delta,
@@ -74,20 +74,20 @@ static inline void scroll_sprite(
 }
 
 
-/* Returns the OAM Property Flags of sprite number nb. */
+/** Returns the OAM Property Flags of sprite number nb. */
 static inline UINT8 get_sprite_prop (UINT8 sprite_id)
 {
     // Nothing
     return 0;
 }
 
-/* Sets the OAM Property Flags of sprite number nb to those defined in prop. */
+/** Sets the OAM Property Flags of sprite number nb to those defined in prop. */
 static inline void set_sprite_prop(UINT8 sprite_id, UINT8 flags)
 {
     // Nothing
 }
 
-/* Initialize the background tile data in memory. */
+/** Initialize the background tile data in memory. */
 static inline void set_bkg_data(
     UINT8 first_tile_index,
     UINT8 num_tiles,
@@ -96,7 +96,7 @@ static inline void set_bkg_data(
     // Nothing
 }
 
-/* Display a background image. */
+/** Display a background image. */
 static inline void set_bkg_tiles(
     UINT8 x_start,
     UINT8 y_start,
@@ -107,19 +107,38 @@ static inline void set_bkg_tiles(
     // Nothing
 }
 
-/* Wait until all buttons are released. */
+/** Wait until all buttons are released. */
 static inline void waitpadup()
 {
     // Nothing
 }
 
-/* Sleep the processor for the given number of milliseconds. */
+/** Get the current joypad inputs. */
+static inline UINT8 joypad()
+{
+    // Nothing
+    return 0;
+}
+
+/** Sleep the processor for the given number of milliseconds. */
 static inline void delay(int millis)
 {
     // Nothing
 }
 
-/* Flags for get_sprite_prop and set_sprite_prop. */
+/** Sleep the processor until the next V-Blank interrupt. */
+static inline void vsync()
+{
+    // Nothing
+}
+
+/** Switch ROM banks. */
+static inline void SWITCH_ROM_MBC1(UINT8)
+{
+    // Nothing
+}
+
+/** Flags for get_sprite_prop and set_sprite_prop. */
 typedef enum {
     S_FLIPX = 1 << 5,
     S_FLIPY = 1 << 6,
@@ -130,4 +149,4 @@ typedef enum {
 #define HIDE_SPRITES (void)0
 #define HIDE_BKG (void)0
 
-#endif  /* DROPLET_MOCK_GB_H */
+#endif  /** DROPLET_MOCK_GB_H */
