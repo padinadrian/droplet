@@ -48,4 +48,8 @@ void InitializeLevel3(Level* level_ptr)
     level_ptr->num_spiders = LEVEL3_NUM_SPIDERS;
     level_ptr->spiders[LEVEL3_SPIDER_0].pos.x = 14;
     level_ptr->spiders[LEVEL3_SPIDER_0].pos.y = 2;
+
+    level_ptr->spiders[LEVEL3_SPIDER_0].num_walls = 1;
+    level_ptr->spiders[LEVEL3_SPIDER_0].walls[0].x = 7;
+    level_ptr->spiders[LEVEL3_SPIDER_0].walls[0].y = 2;
 }

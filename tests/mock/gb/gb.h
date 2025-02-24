@@ -75,13 +75,14 @@ static inline void scroll_sprite(
 
 
 /* Returns the OAM Property Flags of sprite number nb. */
-UINT8 get_sprite_prop (UINT8 sprite_id)
+static inline UINT8 get_sprite_prop (UINT8 sprite_id)
 {
     // Nothing
+    return 0;
 }
 
 /* Sets the OAM Property Flags of sprite number nb to those defined in prop. */
-void set_sprite_prop(UINT8 sprite_id, UINT8 flags)
+static inline void set_sprite_prop(UINT8 sprite_id, UINT8 flags)
 {
     // Nothing
 }

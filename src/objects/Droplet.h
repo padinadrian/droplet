@@ -35,7 +35,7 @@ void DropletInitialize(Position start_pos);
  * Animate Droplet squatting when he is idle.
  * This function should be called once per game loop.
  */
-void DropletAnimate();
+void DropletAnimate(void);
 
 /**
  * Initialize Droplet sprite.
