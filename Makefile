@@ -19,6 +19,7 @@ SOURCES_BANK0 = \
 	src/main.c \
 	src/Debug.c \
 	src/BackgroundMap.c \
+	src/Hitbox.c \
 	src/Level.c \
 	src/Position.c \
 	src/Levels.c \

@@ -33,4 +33,10 @@ static inline UINT8 CheckCollision(Hitbox* a, Hitbox* b)
     );
 }
 
+/**
+ * Scroll hitbox in the given direction.
+ */
+void ScrollHitbox(Hitbox* hitbox_ptr, UINT8 speed_x, UINT8 speed_y);
+
+
 #endif  /* DROPLET_HITBOX_H */

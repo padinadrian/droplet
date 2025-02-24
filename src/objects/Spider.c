@@ -90,6 +90,9 @@ void UpdateSpider(Spider* spider_ptr)
         spider_ptr->hitbox.br.x += speed_x;
         spider_ptr->hitbox.br.y += speed_y;
 
+        // Check Droplet collision
+        // TODO
+
         // Check wall collision
         UINT8 hitbox_x = 0, hitbox_y = 0;
         Hitbox wall_hitbox;
@@ -105,10 +108,7 @@ void UpdateSpider(Spider* spider_ptr)
             if (collision) {
                 // Move backwards
                 ScrollSpriteSquare16(&spider_ptr->sprite, -speed_x, -speed_y);
-                spider_ptr->hitbox.tl.x -= speed_x;
-                spider_ptr->hitbox.tl.y -= speed_y;
-                spider_ptr->hitbox.br.x -= speed_x;
-                spider_ptr->hitbox.br.y -= speed_y;
+                ScrollHitbox(&spider_ptr->hitbox, -speed_x, -speed_y);
 
                 // Turn left
                 UINT8 direction = spider_ptr->state.direction;

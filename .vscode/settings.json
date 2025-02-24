@@ -22,7 +22,8 @@
         "droplet_level2_bg.h": "c",
         "levels.h": "c",
         "levelselector.h": "c",
-        "droplet_level3_bg.h": "c"
+        "droplet_level3_bg.h": "c",
+        "spider.h": "c"
     },
     "python.pythonPath": "C:\\Program Files (x86)\\Python38-32\\python.exe"
 }

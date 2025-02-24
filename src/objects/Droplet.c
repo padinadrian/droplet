@@ -4,7 +4,6 @@
  */
 
 /* ===== Includes ===== */
-#include <gb/gb.h>
 #include "objects/Droplet.h"
 #include "SpriteTileIndex.h"
 #include "Sprites.h"

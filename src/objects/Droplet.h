@@ -7,21 +7,24 @@
 #define DROPLET_DROPLET_H
 
 /* ===== Includes ===== */
+#include <gb/gb.h>
+#include "Hitbox.h"
 #include "Position.h"
 #include "SpriteSquare16.h"
 
 /* ===== Data Types ===== */
 
-// Data needed to manage Droplet.
+/** Data needed to manage Droplet. */
 typedef struct {
     SpriteSquare16 sprite;
     Position pos;
     UINT8 state;
     UINT8 state_counter;
     UINT8 pressed;
+    Hitbox hitbox;
 } Droplet;
 
-// Reference to global Droplet instance.
+/** Reference to global Droplet instance. */
 extern Droplet droplet_global;
 
 /* ===== Functions ===== */
