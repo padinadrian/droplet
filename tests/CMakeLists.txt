@@ -14,6 +14,7 @@ add_executable(${PROJECT_NAME}_tests
     # Sources
     ../src/BackgroundMap.c
     ../src/Debug.c
+    ../src/Hitbox.c
     ../src/Level.c
     ../src/LevelMenu.c
     ../src/Levels.c

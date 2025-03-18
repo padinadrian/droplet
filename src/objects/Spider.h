@@ -11,12 +11,6 @@
 
 /* ===== Data Types ===== */
 
-/** Defines a wall object to bound the Spider's movement area. */
-typedef struct {
-    UINT8 x;
-    UINT8 y;
-} Wall;
-
 /** Define the Spider's current state. */
 typedef struct {
     UINT8 anim_state: 2;
@@ -30,7 +24,7 @@ typedef struct {
     Hitbox hitbox;
     SpiderState state;
     UINT8 state_counter;
-    Wall walls[4];
+    Position walls[4];
     UINT8 num_walls;
 } Spider;
 

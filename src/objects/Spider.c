@@ -97,14 +97,7 @@ void UpdateSpider(Spider* spider_ptr)
         UINT8 hitbox_x = 0, hitbox_y = 0;
         Hitbox wall_hitbox;
         for (UINT8 i = 0; i < spider_ptr->num_walls; ++i) {
-            hitbox_x = (spider_ptr->walls[i].x << 3);
-            hitbox_y = (spider_ptr->walls[i].y << 3);
-            wall_hitbox.tl.x = hitbox_x - 2;
-            wall_hitbox.tl.y = hitbox_y - 2;
-            wall_hitbox.br.x = hitbox_x + 9;
-            wall_hitbox.br.y = hitbox_y + 9;
-
-            UINT8 collision = CheckCollision(&wall_hitbox, &spider_ptr->hitbox);
+            UINT8 collision = CheckCollisionPoint(&spider_ptr->hitbox, spider_ptr->walls + i);
             if (collision) {
                 // Move backwards
                 ScrollSpriteSquare16(&spider_ptr->sprite, -speed_x, -speed_y);

@@ -34,6 +34,17 @@ static inline UINT8 CheckCollision(Hitbox* a, Hitbox* b)
 }
 
 /**
+ * Check collision between a hitbox and a point.
+ */
+static inline UINT8 CheckCollisionPoint(Hitbox* a, Position* b)
+{
+    return (
+        a->tl.x < b->x && a->br.x > b->x &&
+        a->tl.y < b->y && a->br.y > b->y
+    );
+}
+
+/**
  * Scroll hitbox in the given direction.
  */
 void ScrollHitbox(Hitbox* hitbox_ptr, UINT8 speed_x, UINT8 speed_y);

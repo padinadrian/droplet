@@ -51,12 +51,12 @@ void InitializeLevel3(Level* level_ptr)
     level_ptr->spiders[LEVEL3_SPIDER_0].pos.y = 2;
 
     level_ptr->spiders[LEVEL3_SPIDER_0].num_walls = LEVEL3_NUM_WALLS;
-    level_ptr->spiders[LEVEL3_SPIDER_0].walls[0].x = 7;
-    level_ptr->spiders[LEVEL3_SPIDER_0].walls[0].y = 2;
-    level_ptr->spiders[LEVEL3_SPIDER_0].walls[1].x = 8;
-    level_ptr->spiders[LEVEL3_SPIDER_0].walls[1].y = 10;
-    level_ptr->spiders[LEVEL3_SPIDER_0].walls[2].x = 16;
-    level_ptr->spiders[LEVEL3_SPIDER_0].walls[2].y = 8;
-    level_ptr->spiders[LEVEL3_SPIDER_0].walls[3].x = 14;
-    level_ptr->spiders[LEVEL3_SPIDER_0].walls[3].y = 1;
+    level_ptr->spiders[LEVEL3_SPIDER_0].walls[0].x = 65;
+    level_ptr->spiders[LEVEL3_SPIDER_0].walls[0].y = 23;
+    level_ptr->spiders[LEVEL3_SPIDER_0].walls[1].x = 71;
+    level_ptr->spiders[LEVEL3_SPIDER_0].walls[1].y = 78;
+    level_ptr->spiders[LEVEL3_SPIDER_0].walls[2].x = 126;
+    level_ptr->spiders[LEVEL3_SPIDER_0].walls[2].y = 71;
+    level_ptr->spiders[LEVEL3_SPIDER_0].walls[3].x = 119;
+    level_ptr->spiders[LEVEL3_SPIDER_0].walls[3].y = 17;
 }

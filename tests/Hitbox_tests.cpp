@@ -58,3 +58,59 @@ TEST(Hitbox, CheckCollision4)
     a.br.x += 1;
     EXPECT_EQ(CheckCollision(&a, &b), 1);
 }
+
+// Check if hitbox intersects with a point.
+TEST(Hitbox, CheckCollisionPoint1)
+{
+    Hitbox hbox;
+    Position pos;
+    pos.x = 2;
+    pos.y = 2;
+    hbox.tl.x = 1;
+    hbox.tl.y = 1;
+    hbox.br.x = 3;
+    hbox.br.y = 3;
+    EXPECT_TRUE(CheckCollisionPoint(&hbox, &pos));
+}
+
+// Check if hitbox intersects with a point.
+TEST(Hitbox, CheckCollisionPoint2)
+{
+    Hitbox hbox;
+    Position pos;
+    pos.x = 4;
+    pos.y = 2;
+    hbox.tl.x = 1;
+    hbox.tl.y = 1;
+    hbox.br.x = 3;
+    hbox.br.y = 3;
+    EXPECT_FALSE(CheckCollisionPoint(&hbox, &pos));
+}
+
+// Check if hitbox intersects with a point.
+TEST(Hitbox, CheckCollisionPoint3)
+{
+    Hitbox hbox;
+    Position pos;
+    pos.x = 3;
+    pos.y = 2;
+    hbox.tl.x = 1;
+    hbox.tl.y = 1;
+    hbox.br.x = 3;
+    hbox.br.y = 3;
+    EXPECT_FALSE(CheckCollisionPoint(&hbox, &pos));
+}
+
+// Check if hitbox intersects with a point.
+TEST(Hitbox, CheckCollisionPoint4)
+{
+    Hitbox hbox;
+    Position pos;
+    pos.x = 63;
+    pos.y = 23;
+    hbox.tl.x = (7 << 3) + 4;
+    hbox.tl.y = (2 << 3);
+    hbox.br.x = (9 << 3) + 4;
+    hbox.br.y = (4 << 3);
+    EXPECT_TRUE(CheckCollisionPoint(&hbox, &pos));
+}
