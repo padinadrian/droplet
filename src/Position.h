@@ -32,7 +32,7 @@ static inline void PositionCopy(Position* dest, const Position src)
  * Returns 1 if Positions are the same, 0 otherwise.
  * TODO: Should this be inlined?
  */
-UINT8 PositionCompare(const Position* pos1, const Position* pos2);
+UINT8 PositionCompare(const Position pos1, const Position pos2);
 
 /**
  * Check if two points are close to each other.

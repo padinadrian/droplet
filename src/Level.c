@@ -25,11 +25,11 @@ void SetLevelBackground(
 /** Check if Droplet has reached the end of the level. */
 UINT8 IsLevelComplete(
         Level* level_ptr,
-        Position* droplet_pos_ptr)
+        Position droplet_pos)
 {
     return PositionCompare(
-        droplet_pos_ptr,
-        &(level_ptr->exit_pos)
+        droplet_pos,
+        level_ptr->exit_pos
     );
 }
 
@@ -88,7 +88,7 @@ int DropletCheckMovement(
     return !(
         TileIsWall(map_ptr, &next_pos1) ||
         TileIsWall(map_ptr, &next_pos2) ||
-        PosIsClosedGate(level_ptr->gates, level_ptr->num_gates, &next_px_pos1) ||
-        PosIsClosedGate(level_ptr->gates, level_ptr->num_gates, &next_px_pos2)
+        PosIsClosedGate(level_ptr->gates, level_ptr->num_gates, next_px_pos1) ||
+        PosIsClosedGate(level_ptr->gates, level_ptr->num_gates, next_px_pos2)
     );
 }

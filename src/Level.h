@@ -58,7 +58,7 @@ void SetLevelBackground(
  */
 UINT8 IsLevelComplete(
     Level* level_ptr,
-    Position* droplet_pos_ptr
+    Position droplet_pos
 );
 
 /**

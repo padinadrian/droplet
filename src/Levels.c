@@ -66,7 +66,6 @@ void PlayLevel(UINT8 level_number)
     UINT8 i;
     UINT8 joypad_input = 0;
     UINT8 a_pressed = 0;
-    Position* droplet_pos_ptr = &(droplet_global.pos);
     Level* level_ptr = &global_level;
 
     ResetLevel(level_ptr);
@@ -76,7 +75,7 @@ void PlayLevel(UINT8 level_number)
     level_functions[level_number](level_ptr);
     LoadLevel(level_ptr);
 
-    while (!IsLevelComplete(level_ptr, droplet_pos_ptr))
+    while (!IsLevelComplete(level_ptr, droplet_global.pos))
     {
         /* Switch between normal and squished. */
         DropletAnimate();
@@ -93,7 +92,7 @@ void PlayLevel(UINT8 level_number)
                 FlipNearbySwitches(
                     level_ptr->switches,
                     level_ptr->num_switches,
-                    *droplet_pos_ptr
+                    droplet_global.pos
                 );
                 CheckGateSwitches(
                     level_ptr->gates,

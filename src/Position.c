@@ -9,9 +9,9 @@
 /* ===== Functions ===== */
 
 /** Compare two Positions to see if they are the same. */
-UINT8 PositionCompare(const Position* pos1, const Position* pos2)
+UINT8 PositionCompare(const Position pos1, const Position pos2)
 {
-    return ((pos1->x == pos2->x) && (pos1->y == pos2->y));
+    return ((pos1.x == pos2.x) && (pos1.y == pos2.y));
 }
 
 /** Check if two points are close to each other. */

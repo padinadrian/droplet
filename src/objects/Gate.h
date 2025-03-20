@@ -49,6 +49,6 @@ void FlipGate(Gate* gate_ptr);
 void CheckGateSwitches(Gate* gates, UINT8 num_gates, Switch* switches);
 
 /** Check if the given position is a closed gate. */
-UINT8 PosIsClosedGate(Gate* gates, UINT8 num_gates, Position* pos_ptr);
+UINT8 PosIsClosedGate(Gate* gates, UINT8 num_gates, Position pos_ptr);
 
 #endif  /* DROPLET_GATE_H */
