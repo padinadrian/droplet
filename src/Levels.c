@@ -121,5 +121,9 @@ void PlayLevel(UINT8 level_number)
         vsync();
     }
 
+    if (IsDropletDead()) {
+        DropletDeathAnimation();
+    }
+
     ClearExistingSprites();
 }

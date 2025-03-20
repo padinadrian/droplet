@@ -54,4 +54,9 @@ static inline int IsDropletDead(void) {
  */
 void MoveDroplet(UINT8 direction);
 
+/**
+ * Show the Droplet death animation.
+ */
+void DropletDeathAnimation(void);
+
 #endif  /* DROPLET_DROPLET_H */

@@ -4,6 +4,7 @@
  */
 
 /* ===== Includes ===== */
+#include <gb/gb.h>
 #include "objects/Droplet.h"
 #include "SpriteTileIndex.h"
 #include "Sprites.h"
@@ -188,5 +189,78 @@ void MoveDroplet(UINT8 direction)
             droplet_global.pressed = 0;
             break;
         }
+    }
+}
+
+/**
+ * Show the Droplet death animation.
+ */
+void DropletDeathAnimation(void)
+{
+    // Set to upright position
+    SetSpriteTileSquare16(
+        &droplet_global.sprite,
+        (UINT8)SPRITE_DROPLET_16_NORMAL_TL
+    );
+
+    // Freeze for a second
+    // TODO: play a sound
+    for (int i = 0; i < 60; ++i) {
+        vsync();
+    }
+
+    // Death frame 0 (squatting)
+    SetSpriteTileSquare16(
+        &droplet_global.sprite,
+        (UINT8)SPRITE_DROPLET_16_SQUAT_TL
+    );
+
+    // Hold for quarter second
+    for (int i = 0; i < 15; ++i) {
+        vsync();
+    }
+
+    // Death frame 1
+    SetSpriteTileSquare16(
+        &droplet_global.sprite,
+        (UINT8)SPRITE_DROPLET_16_DEATH_STATE_1_TL
+    );
+
+    // Hold for quarter second
+    for (int i = 0; i < 15; ++i) {
+        vsync();
+    }
+
+    // Death frame 2
+    SetSpriteTileSquare16(
+        &droplet_global.sprite,
+        (UINT8)SPRITE_DROPLET_16_DEATH_STATE_2_TL
+    );
+
+    // Hold for quarter second
+    for (int i = 0; i < 15; ++i) {
+        vsync();
+    }
+
+    // Death frame 3
+    SetSpriteTileSquare16(
+        &droplet_global.sprite,
+        (UINT8)SPRITE_DROPLET_16_DEATH_STATE_3_TL
+    );
+
+    // Hold for quarter second
+    for (int i = 0; i < 15; ++i) {
+        vsync();
+    }
+
+    // Death frame 4 (gone)
+    set_sprite_tile(droplet_global.sprite.top_left, 0);
+    set_sprite_tile(droplet_global.sprite.bottom_left, 0);
+    set_sprite_tile(droplet_global.sprite.top_right, 0);
+    set_sprite_tile(droplet_global.sprite.bottom_right, 0);
+
+    // Hold for quarter second
+    for (int i = 0; i < 15; ++i) {
+        vsync();
     }
 }
