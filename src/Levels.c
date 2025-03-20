@@ -75,7 +75,10 @@ void PlayLevel(UINT8 level_number)
     level_functions[level_number](level_ptr);
     LoadLevel(level_ptr);
 
-    while (!IsLevelComplete(level_ptr, droplet_global.pos))
+    while (
+        !IsLevelComplete(level_ptr, droplet_global.pos) &&
+        !IsDropletDead()
+    )
     {
         /* Switch between normal and squished. */
         DropletAnimate();
@@ -108,9 +111,13 @@ void PlayLevel(UINT8 level_number)
         /* Move enemies and check for collision. */
         for (i = 0; i < level_ptr->num_spiders; ++i) {
             UpdateSpider(&(level_ptr->spiders[i]));
+            if (CheckCollision(&(level_ptr->spiders[i].hitbox), &(droplet_global.hitbox))) {
+                droplet_global.dead = 1;
+                break;
+            }
         }
 
-        /* Loop time of ~50ms */
+        /* Loop time of ~16.66ms */
         vsync();
     }
 

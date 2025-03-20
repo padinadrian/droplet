@@ -39,6 +39,7 @@ void SpiderInitialize(Spider* spider_ptr)
 {
     // Initial state
     spider_ptr->state.anim_state = SPIDER_STATE_0;
+    spider_ptr->state.direction = 0;
     spider_ptr->state_counter = 0;
 
     // Initialize sprites

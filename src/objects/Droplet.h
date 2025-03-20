@@ -16,12 +16,14 @@
 
 /** Data needed to manage Droplet. */
 typedef struct {
+    Hitbox hitbox;
     SpriteSquare16 sprite;
     Position pos;
+    // TODO: Change to bitfield
     UINT8 state;
     UINT8 state_counter;
     UINT8 pressed;
-    Hitbox hitbox;
+    UINT8 dead;
 } Droplet;
 
 /** Reference to global Droplet instance. */
@@ -39,6 +41,13 @@ void DropletInitialize(Position start_pos);
  * This function should be called once per game loop.
  */
 void DropletAnimate(void);
+
+/**
+ * Check if Droplet has been killed.
+ */
+static inline int IsDropletDead(void) {
+    return droplet_global.dead;
+}
 
 /**
  * Initialize Droplet sprite.

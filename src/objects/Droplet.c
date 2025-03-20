@@ -38,6 +38,7 @@ void DropletInitialize(Position start_pos)
     droplet_global.state = DROPLET_STATE_NORMAL_RIGHT;
     droplet_global.state_counter = 0;
     droplet_global.pressed = 0;
+    droplet_global.dead = 0;
 
     /* Set sprite IDs. */
     SpriteSquare16* sprite_ptr = &(droplet_global.sprite);
@@ -51,13 +52,18 @@ void DropletInitialize(Position start_pos)
 
     /* Move Droplet to the starting position. */
     PositionCopy(&droplet_pixel_pos, start_pos);
-
     GridPosToPixelPos(&droplet_pixel_pos);
     MoveSpriteSquare16(
         &(droplet_global.sprite),
         droplet_pixel_pos.x,
         droplet_pixel_pos.y
     );
+
+    /* Initialize hitbox for Droplet. */
+    PositionCopy(&(droplet_global.hitbox.tl), droplet_pixel_pos);
+    PositionCopy(&(droplet_global.hitbox.br), droplet_pixel_pos);
+    droplet_global.hitbox.br.x += 15;
+    droplet_global.hitbox.br.y += 15;
 
     PositionCopy(&droplet_global.pos, start_pos);
 }
@@ -129,6 +135,7 @@ void MoveDroplet(UINT8 direction)
                     }
                 }
                 ScrollSpriteSquare16(&droplet_global.sprite, -8, 0);
+                ScrollHitbox(&droplet_global.hitbox, -8, 0);
                 droplet_global.pos.x -= 1;
                 droplet_global.pressed = 1;
                 droplet_global.state |= 1;  // Reverse direction
@@ -147,6 +154,7 @@ void MoveDroplet(UINT8 direction)
                     }
                 }
                 ScrollSpriteSquare16(&droplet_global.sprite, 8, 0);
+                ScrollHitbox(&droplet_global.hitbox, 8, 0);
                 droplet_global.pos.x += 1;
                 droplet_global.pressed = 1;
                 droplet_global.state &= -2;  // Reverse direction
@@ -158,6 +166,7 @@ void MoveDroplet(UINT8 direction)
             if (!droplet_global.pressed)
             {
                 ScrollSpriteSquare16(&droplet_global.sprite, 0, -8);
+                ScrollHitbox(&droplet_global.hitbox, 0, -8);
                 droplet_global.pos.y -= 1;
                 droplet_global.pressed = 1;
                 droplet_global.state_counter = DROPLET_COUNTER_MAX;
@@ -168,6 +177,7 @@ void MoveDroplet(UINT8 direction)
             if (!droplet_global.pressed)
             {
                 ScrollSpriteSquare16(&droplet_global.sprite, 0, 8);
+                ScrollHitbox(&droplet_global.hitbox, 0, 8);
                 droplet_global.pos.y += 1;
                 droplet_global.pressed = 1;
                 droplet_global.state_counter = DROPLET_COUNTER_MAX;
