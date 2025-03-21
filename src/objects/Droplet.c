@@ -232,10 +232,16 @@ void DropletDeathAnimation(void)
     }
 
     // Death frame 2
-    SetSpriteTileSquare16(
-        &droplet_global.sprite,
-        (UINT8)SPRITE_DROPLET_16_DEATH_STATE_2_TL
-    );
+    set_sprite_tile(droplet_global.sprite.top_left, 0);
+    set_sprite_tile(droplet_global.sprite.top_right, 0);
+    if (droplet_global.state & 1) {
+        set_sprite_tile(droplet_global.sprite.bottom_left, (UINT8)SPRITE_DROPLET_16_DEATH_STATE_2_BR);
+        set_sprite_tile(droplet_global.sprite.bottom_right, (UINT8)SPRITE_DROPLET_16_DEATH_STATE_2_BL);
+    }
+    else {
+        set_sprite_tile(droplet_global.sprite.bottom_left, (UINT8)SPRITE_DROPLET_16_DEATH_STATE_2_BL);
+        set_sprite_tile(droplet_global.sprite.bottom_right, (UINT8)SPRITE_DROPLET_16_DEATH_STATE_2_BR);
+    }
 
     // Hold for quarter second
     for (int i = 0; i < 15; ++i) {
@@ -243,10 +249,14 @@ void DropletDeathAnimation(void)
     }
 
     // Death frame 3
-    SetSpriteTileSquare16(
-        &droplet_global.sprite,
-        (UINT8)SPRITE_DROPLET_16_DEATH_STATE_3_TL
-    );
+    if (droplet_global.state & 1) {
+        set_sprite_tile(droplet_global.sprite.bottom_left, (UINT8)SPRITE_DROPLET_16_DEATH_STATE_3_BR);
+        set_sprite_tile(droplet_global.sprite.bottom_right, (UINT8)SPRITE_DROPLET_16_DEATH_STATE_3_BL);
+    }
+    else {
+        set_sprite_tile(droplet_global.sprite.bottom_left, (UINT8)SPRITE_DROPLET_16_DEATH_STATE_3_BL);
+        set_sprite_tile(droplet_global.sprite.bottom_right, (UINT8)SPRITE_DROPLET_16_DEATH_STATE_3_BR);
+    }
 
     // Hold for quarter second
     for (int i = 0; i < 15; ++i) {
@@ -254,13 +264,11 @@ void DropletDeathAnimation(void)
     }
 
     // Death frame 4 (gone)
-    set_sprite_tile(droplet_global.sprite.top_left, 0);
     set_sprite_tile(droplet_global.sprite.bottom_left, 0);
-    set_sprite_tile(droplet_global.sprite.top_right, 0);
     set_sprite_tile(droplet_global.sprite.bottom_right, 0);
 
     // Hold for quarter second
-    for (int i = 0; i < 15; ++i) {
+    for (int i = 0; i < 60; ++i) {
         vsync();
     }
 }

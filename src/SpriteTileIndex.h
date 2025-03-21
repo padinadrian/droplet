@@ -83,10 +83,12 @@ typedef enum {
     SPRITE_DROPLET_16_DEATH_STATE_1_TL  = 48,
 
     /* Droplet Death, 16x16, state 2  */
-    SPRITE_DROPLET_16_DEATH_STATE_2_TL  = 52,
+    SPRITE_DROPLET_16_DEATH_STATE_2_BL  = 52,
+    SPRITE_DROPLET_16_DEATH_STATE_2_BR  = 54,
 
     /* Droplet Death, 16x16, state 3  */
-    SPRITE_DROPLET_16_DEATH_STATE_3_TL  = 56,
+    SPRITE_DROPLET_16_DEATH_STATE_3_BL  = 53,
+    SPRITE_DROPLET_16_DEATH_STATE_3_BR  = 55,
 
     /* The total number of sprites. */
     SPRITE_TILE_COUNT

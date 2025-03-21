@@ -24,6 +24,7 @@ void ClearExistingSprites()
     UINT8 id;
     for (id = 0; id < sprite_counter; ++id) {
         set_sprite_tile(id, SPRITE_NULL);
+        set_sprite_prop(id, 0);
     }
     sprite_counter = 0;
 }
