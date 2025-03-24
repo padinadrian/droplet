@@ -10,24 +10,9 @@
 #include "SpriteTileIndex.h"
 #include "Utility.h"
 
-/* ===== Data Types ===== */
+/* ===== Constants ===== */
 
-/** The animation states of the Spider. */
-typedef enum {
-    SPIDER_STATE_0,
-    SPIDER_STATE_1,
-    NUM_SPIDER_STATES,
-} SpiderAnimation;
-
-/** Spider movement direction. */
-typedef enum {
-    DIRECTION_LEFT = 0,
-    DIRECTION_DOWN = 1,
-    DIRECTION_RIGHT = 2,
-    DIRECTION_UP = 3,
-    NUM_DIRECTIONS,
-} SpiderDirection;
-
+/** Counter for spider animation state machine. */
 enum { SPIDER_MAX_COUNTER = 15 };
 
 /* ===== Functions ===== */
@@ -39,7 +24,6 @@ void SpiderInitialize(Spider* spider_ptr)
 {
     // Initial state
     spider_ptr->state.anim_state = SPIDER_STATE_0;
-    spider_ptr->state.direction = 0;
     spider_ptr->state_counter = 0;
 
     // Initialize sprites
